@@ -1,0 +1,51 @@
+name: Deploy site to GitHub Pages
+
+# portfolio-site/ 是站点唯一源：mcode 用 website_deploy 直接发这个目录，
+# Pages 这里把它整份发布出去，两边内容永远一致，不需要复制或同步两份。
+# Pages 的 source path 只接受 / 或 /docs，指不到 portfolio-site/，
+# 所以走 Actions 而不是 "Deploy from branch"。
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'portfolio-site/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site directory
+        run: |
+          mkdir -p _site
+          cp -R portfolio-site/. _site/
+          # 站点没有构建产物，确认 index.html 真的在根上，避免发一个空目录
+          test -f _site/index.html || { echo "::error::index.html 不在 portfolio-site/ 下"; exit 1; }
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
