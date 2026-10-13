@@ -1,0 +1,1988 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>蒋汶睿 — IT / 安全合规 / DevSecOps</title>
+<meta name="description" content="蒋汶睿的个人网站。4 年企业级 IT 交付，31 个开源项目，方向为安全合规、身份管理、DevSecOps 与 AI 应用工程。" />
+<meta name="theme-color" content="#08090b" />
+<meta property="og:title" content="蒋汶睿 — IT / 安全合规 / DevSecOps" />
+<meta property="og:description" content="把企业级 IT 的严谨，带进 AI 工程。" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://06a9sk88n7fwg.space.mcode.cn/" />
+<meta property="og:url" content="https://06a9sk88n7fwg.space.mcode.cn/" />
+<meta property="og:site_name" content="蒋汶睿 — IT / 安全合规 / DevSecOps" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary" />
+<style>
+/* ============================================================
+   蒋汶睿 / Personal Site
+   Dark-first technical-editorial system
+   ============================================================ */
+:root{
+  --void:#08090b;
+  --surface:#0e1013;
+  --raised:#14171c;
+  --screen:#0a0c0f;
+
+  --ink:#f2f1ec;
+  --ink-2:#b7bac2;
+  --muted:#787d88;
+  --faint:#4a4e57;
+
+  --line:rgba(242,241,236,.10);
+  --line-2:rgba(242,241,236,.20);
+  --line-3:rgba(242,241,236,.34);
+
+  --amber:#f0a92b;
+  --amber-2:#ffc55c;
+  --amber-soft:rgba(240,169,43,.13);
+  --azure:#3d63f0;
+  --azure-soft:rgba(61,99,240,.14);
+  --teal:#18a89b;
+  --rose:#e2685f;
+
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 18px 44px rgba(0,0,0,.55);
+  --shadow-sm:0 8px 22px rgba(0,0,0,.38);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--void);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+body::before{
+  position:fixed;inset:0;z-index:0;pointer-events:none;content:"";
+  background:
+    radial-gradient(900px 520px at 12% -6%, rgba(240,169,43,.075), transparent 62%),
+    radial-gradient(820px 480px at 92% 8%, rgba(61,99,240,.085), transparent 60%),
+    radial-gradient(700px 600px at 50% 108%, rgba(24,168,155,.05), transparent 65%);
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{color:inherit;font:inherit;background:none;border:0;padding:0;cursor:pointer;}
+button,a{-webkit-tap-highlight-color:transparent;}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px;}
+::selection{background:var(--amber);color:#08090b;}
+
+/* ---------- micro typography ---------- */
+.kicker,.card-label,.project-index,.micro,.visual-head,.visual-foot,
+.section-kicker,.cap-head,.fact-num,.pill-note,.stamp{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:500;
+  line-height:1.25;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.micro{color:var(--muted);letter-spacing:.14em;}
+.dim{color:var(--muted);}
+
+/* ---------- shell ---------- */
+.shell{position:relative;z-index:1;width:min(100%,1560px);margin:0 auto;padding:0 2.4vw;}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  min-height:70px;padding:11px 2.4vw;
+  border-bottom:1px solid var(--line);
+  background:rgba(8,9,11,.78);
+  -webkit-backdrop-filter:saturate(150%) blur(16px);
+  backdrop-filter:saturate(150%) blur(16px);
+}
+.name-pill,.nav-links a{
+  display:inline-flex;align-items:center;min-height:38px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:12.5px;line-height:1;letter-spacing:-.01em;
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.name-pill{gap:9px;padding:0 14px;font-weight:500;}
+.name-pill b{font-weight:500;}
+.divider{width:1px;height:13px;background:var(--line-2);}
+.nav-links{display:flex;gap:6px;}
+.nav-links a{padding:0 15px;color:var(--ink-2);}
+.name-pill:hover,.nav-links a:hover{background:var(--ink);border-color:var(--ink);color:var(--void);}
+
+.progress{
+  position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:var(--line);overflow:hidden;
+}
+.progress i{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--amber),var(--azure));
+  transition:width .12s linear;
+}
+
+/* ---------- hero bento ---------- */
+.hero{padding:20px 0 84px;}
+.section-kicker{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:0 1px 13px;color:var(--muted);
+}
+.section-kicker span:last-child{text-align:right;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:repeat(6,94px);
+  gap:15px;
+}
+.card{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);border-radius:14px;
+  background:var(--surface);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  transition:border-color .24s ease,background-color .24s ease,box-shadow .24s ease,transform .24s var(--ease);
+}
+.card:hover{border-color:var(--line-2);}
+.card-label{
+  position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:36px;padding:0 14px;border-bottom:1px solid var(--line);
+  color:var(--muted);background:rgba(255,255,255,.014);
+}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--ink);letter-spacing:.04em;text-transform:none;font-family:var(--sans);font-size:11px;}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--amber-soft);animation:pulse 2.6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* staggered one-time entrance */
+.enter{animation:rise .7s var(--ease) both;}
+.enter:nth-child(1){animation-delay:.04s}
+.enter:nth-child(2){animation-delay:.10s}
+.enter:nth-child(3){animation-delay:.16s}
+.enter:nth-child(4){animation-delay:.22s}
+.enter:nth-child(5){animation-delay:.28s}
+.enter:nth-child(6){animation-delay:.34s}
+.enter:nth-child(7){animation-delay:.40s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* identity */
+.identity{grid-column:1/span 4;grid-row:1/span 4;display:flex;flex-direction:column;--scene-h:clamp(150px,10.6vw,178px);}
+.identity-body{position:relative;z-index:1;display:flex;flex:1;flex-direction:column;gap:18px;padding:16px 18px 14px;}
+.identity h1{
+  margin:0;font-size:clamp(23px,2.42vw,33px);font-weight:500;
+  letter-spacing:-.045em;line-height:1.08;
+}
+.identity-foot{
+  position:relative;z-index:1;margin:0;padding:12px 18px 16px;
+  border-top:1px solid var(--line);
+  font-size:12.5px;line-height:1.5;color:var(--ink-2);
+}
+.scene{
+  position:relative;width:100%;height:var(--scene-h);flex:0 0 auto;
+  border:1px solid var(--line-2);border-radius:10px;overflow:hidden;background:var(--screen);
+  box-shadow:var(--shadow-sm);
+}
+.scene svg{width:100%;height:100%;}
+.scene:hover svg{animation:drift 6s ease-in-out infinite;}
+@keyframes drift{0%,100%{transform:scale(1)}50%{transform:scale(1.018)}}
+.stamp{
+  position:absolute;right:8px;bottom:8px;
+  display:grid;place-items:center;min-width:52px;height:24px;padding:0 8px;
+  border:1px solid rgba(240,169,43,.5);border-radius:999px;
+  background:rgba(240,169,43,.16);color:var(--amber-2);
+  font-size:8.5px;letter-spacing:.09em;
+}
+
+/* intro */
+.intro{grid-column:5/span 4;grid-row:1/span 2;display:flex;flex-direction:column;background:var(--raised);}
+.intro-body{display:grid;flex:1;grid-template-columns:minmax(0,1fr) auto;gap:10px 14px;padding:13px 15px 14px;align-content:start;}
+.intro-body>p{grid-column:1/-1;margin:0;max-width:52ch;font-size:clamp(13.5px,1.06vw,15.5px);line-height:1.5;letter-spacing:-.015em;color:var(--ink);}
+.intro-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;align-self:end;}
+.intro-meta div{min-width:0;}
+.intro-meta dt,.intro-meta dd{margin:0;font-size:9px;line-height:1.3;}
+.intro-meta dt{color:var(--muted);font-family:var(--mono);letter-spacing:.09em;text-transform:uppercase;}
+.intro-meta dd{margin-top:5px;font-size:10.5px;color:var(--ink);}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:40px;padding:0 16px;
+  border:1px solid var(--line-2);border-radius:10px;
+  font-size:12.5px;font-weight:500;white-space:nowrap;
+  transition:transform .22s var(--ease),background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{align-self:end;background:var(--ink);border-color:var(--ink);color:var(--void);}
+.btn-primary:hover{background:var(--amber);border-color:var(--amber);}
+.arrow{display:inline-block;font-size:14px;line-height:.8;transition:transform .22s var(--ease);}
+.btn:hover .arrow{transform:translate(2px,-2px);}
+
+/* signal (amber) */
+.signal{
+  grid-column:9/span 2;grid-row:1/span 2;display:flex;flex-direction:column;
+  background:linear-gradient(158deg,#1b1509 0%,#0f0d0a 62%);
+  border-color:rgba(240,169,43,.30);
+}
+.signal:hover{border-color:rgba(240,169,43,.55);}
+.signal .card-label{border-color:rgba(240,169,43,.24);color:var(--amber);}
+.signal-body{display:flex;flex:1;flex-direction:column;justify-content:space-between;padding:13px 14px 12px;}
+.signal-body strong{
+  font-family:var(--mono);font-size:clamp(34px,3.3vw,46px);font-weight:500;
+  letter-spacing:-.05em;line-height:.9;color:var(--amber);
+}
+.signal-body p{margin:0;font-size:12.5px;line-height:1.4;letter-spacing:-.01em;color:#e6d9c2;}
+.text-link{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 14px 11px;border-top:1px solid rgba(240,169,43,.24);
+  color:var(--amber-2);font-size:11.5px;
+  transition:background-color .2s ease;
+}
+.text-link:hover{background:rgba(240,169,43,.10);}
+
+/* cv card */
+.cv{grid-column:11/span 2;grid-row:1/span 3;display:flex;flex-direction:column;background:var(--raised);}
+.cv .card-label{color:var(--muted);}
+.cv-word{padding:10px 13px 2px;font-size:clamp(30px,3vw,44px);font-weight:500;letter-spacing:-.06em;line-height:.9;}
+.cv-meta{display:grid;gap:3px;margin:2px 13px 10px;}
+.cv-meta div{display:flex;justify-content:space-between;gap:8px;padding-top:4px;border-top:1px solid var(--line);}
+.cv-meta dt,.cv-meta dd{margin:0;font-family:var(--mono);font-size:8.5px;line-height:1.2;letter-spacing:.05em;}
+.cv-meta dt{color:var(--faint);}
+.cv-meta dd{color:var(--ink-2);text-align:right;}
+.cv-actions{display:grid;gap:6px;margin-top:auto;padding:0 10px 10px;}
+.dl{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  min-height:34px;padding:0 11px;border:1px solid var(--line);border-radius:9px;
+  font-size:11.5px;color:var(--ink-2);
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.dl:hover{background:var(--ink);border-color:var(--ink);color:var(--void);}
+
+/* skills */
+.skills{grid-column:1/span 4;grid-row:5/span 2;background:var(--raised);}
+.skill-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 13px 10px;}
+.skill-list>div{min-width:0;padding:8px 9px 8px 0;border-bottom:1px solid var(--line);transition:transform .22s var(--ease);}
+.skill-list>div:nth-child(even){padding-left:11px;border-left:1px solid var(--line);}
+.skill-list>div:hover{transform:translateX(2px);}
+.skill-list span{display:block;color:var(--muted);font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;}
+.skill-list strong{display:block;margin-top:5px;font-size:11px;font-weight:500;line-height:1.3;letter-spacing:-.01em;}
+
+/* hero project preview */
+.hero-project{grid-column:5/span 6;grid-row:3/span 4;display:flex;flex-direction:column;background:var(--raised);}
+.preview{position:relative;flex:1;margin:12px;overflow:hidden;border:1px solid var(--line-2);border-radius:11px;background:var(--screen);box-shadow:var(--shadow-sm);}
+.preview svg{width:100%;height:100%;transition:transform .5s var(--ease);}
+.hero-project:hover .preview svg{transform:scale(1.022);}
+.preview-note{
+  position:absolute;top:0;right:0;bottom:0;display:flex;width:37%;flex-direction:column;justify-content:flex-end;
+  padding:14px;border-left:1px solid var(--line-2);
+  background:rgba(10,12,15,.82);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.preview-note span,.preview-note small{color:var(--muted);font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;}
+.preview-note strong{margin:11px 0 auto;font-size:clamp(12.5px,1.14vw,16.5px);font-weight:500;letter-spacing:-.035em;line-height:1.22;}
+.preview-note small{line-height:1.4;letter-spacing:.05em;}
+.hero-project-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;padding:0 13px 13px;}
+.hero-project-foot h2{margin:5px 0 0;font-size:26px;font-weight:500;letter-spacing:-.05em;line-height:.95;}
+.hero-case-link{padding-bottom:3px;border-bottom:1px solid currentColor;font-size:11.5px;color:var(--ink-2);transition:color .2s ease;border-bottom-color:currentColor;}
+.hero-case-link:hover{color:var(--amber);}
+.case-link{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  width:100%;min-height:38px;padding:0 12px;
+  border:1px solid var(--line);border-radius:9px;
+  font-size:11.5px;text-align:left;color:var(--ink-2);
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.case-link:hover{background:var(--ink);border-color:var(--ink);color:var(--void);}
+
+/* index */
+.explore{grid-column:11/span 2;grid-row:4/span 3;display:flex;flex-direction:column;}
+.explore-link{
+  display:flex;flex:1;align-items:center;justify-content:space-between;gap:8px;
+  padding:0 13px;border-bottom:1px solid var(--line);
+  font-size:13px;letter-spacing:-.02em;
+  transition:background-color .2s ease,color .2s ease,padding-left .24s var(--ease);
+}
+.explore-link:last-child{border-bottom:0;}
+.explore-link:hover{background:var(--amber);color:#08090b;padding-left:17px;}
+.explore-link small{color:var(--faint);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;}
+.explore-link:hover small{color:rgba(8,9,11,.6);}
+
+/* ---------- section scaffold ---------- */
+.band{padding:0 0 84px;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding-bottom:16px;}
+.section-title{
+  display:inline-flex;align-items:center;min-height:34px;padding:0 13px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;white-space:nowrap;
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.section-title:hover{border-color:var(--line-3);}
+.section-head p{margin:0;max-width:56ch;color:var(--muted);font-size:13px;line-height:1.45;text-align:right;}
+
+/* ---------- project rows ---------- */
+.prow{
+  display:grid;grid-template-columns:minmax(290px,.96fr) minmax(0,2.04fr);
+  gap:15px;margin-top:15px;
+}
+.prow.flip{grid-template-columns:minmax(0,2.04fr) minmax(290px,.96fr);}
+.prow.flip .pvisual{order:1;}
+.prow.flip .pinfo{order:2;}
+
+.pinfo{
+  display:flex;flex-direction:column;padding:19px;
+  min-height:466px;background:var(--surface);box-shadow:var(--shadow-sm);
+}
+.pinfo:hover{background:var(--raised);}
+.pindex{margin:0 0 16px;color:var(--muted);}
+.pinfo h2{margin:0;font-size:clamp(36px,3.5vw,54px);font-weight:500;letter-spacing:-.06em;line-height:.94;}
+.ptype{max-width:34ch;margin:12px 0 0;font-size:14.5px;line-height:1.45;letter-spacing:-.02em;color:var(--ink-2);}
+
+.pfacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:26px 0 18px;border-top:1px solid var(--line);}
+.pfacts>div{display:flex;flex-direction:column;gap:8px;min-height:76px;padding:12px 12px 11px 0;border-bottom:1px solid var(--line);}
+.pfacts>div:nth-child(even){padding-left:12px;padding-right:0;border-left:1px solid var(--line);}
+.pfacts dt{margin:0;color:var(--muted);font-size:10.5px;line-height:1.3;}
+.pfacts dd{margin:0;font-size:11.5px;line-height:1.4;letter-spacing:-.01em;}
+
+.pfoot{display:flex;flex-direction:column;gap:10px;margin-top:auto;}
+.pmeta{display:flex;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;}
+.pmeta span:last-child{text-align:right;}
+
+/* project visual instrument */
+.pvisual{
+  position:relative;display:flex;flex-direction:column;min-height:466px;overflow:hidden;
+  border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+  background:var(--screen);
+  transition:border-color .24s ease,box-shadow .24s ease;
+}
+.prow:hover .pvisual{border-color:var(--line-2);box-shadow:0 22px 52px rgba(0,0,0,.62);}
+.vhead,.vfoot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 16px;color:var(--ink-2);}
+.vhead{min-height:42px;border-bottom:1px solid currentColor;}
+.vfoot{min-height:46px;border-top:1px solid currentColor;color:var(--muted);}
+.vstage{flex:1;display:grid;grid-template-columns:minmax(0,1.36fr) minmax(196px,.64fr);gap:26px;min-height:0;padding:24px;}
+.vstage.flip{grid-template-columns:minmax(196px,.64fr) minmax(0,1.36fr);}
+.vart{
+  display:flex;align-items:center;justify-content:center;min-height:0;
+  border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#0b0d10;
+}
+.vart svg{width:100%;height:100%;transition:transform .5s var(--ease);}
+.prow:hover .vart svg{transform:scale(1.026);}
+.vfeat{display:flex;flex-direction:column;justify-content:flex-end;padding:2px 0;}
+.vfeat>span{color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.vfeat strong{margin:16px 0 0;font-size:clamp(22px,2.05vw,31px);font-weight:500;letter-spacing:-.045em;line-height:1.04;}
+.vfeat p{margin:12px 0 0;font-size:12.5px;line-height:1.5;color:var(--ink-2);}
+.vfeat small{margin-top:auto;padding-top:16px;color:var(--muted);font-size:10.5px;line-height:1.45;font-family:var(--mono);letter-spacing:.04em;}
+
+/* per-project accent */
+.pv-1{--ac:var(--amber);--ac-soft:rgba(240,169,43,.12);--ac-line:rgba(240,169,43,.34);background:linear-gradient(165deg,#15100a 0%,#0a0c0f 58%);}
+.pv-2{--ac:#6b8cff;--ac-soft:rgba(107,140,255,.12);--ac-line:rgba(107,140,255,.34);background:linear-gradient(165deg,#0c1020 0%,#0a0c0f 58%);}
+.pv-3{--ac:var(--teal);--ac-soft:rgba(24,168,155,.12);--ac-line:rgba(24,168,155,.34);background:linear-gradient(165deg,#081614 0%,#0a0c0f 58%);}
+.pv-4{--ac:var(--rose);--ac-soft:rgba(226,104,95,.12);--ac-line:rgba(226,104,95,.32);background:linear-gradient(165deg,#1a0f0f 0%,#0a0c0f 58%);}
+.pv-1 .vhead,.pv-1 .vfeat>span{color:var(--amber);}
+.pv-2 .vhead,.pv-2 .vfeat>span{color:#6b8cff;}
+.pv-3 .vhead,.pv-3 .vfeat>span{color:var(--teal);}
+.pv-4 .vhead,.pv-4 .vfeat>span{color:var(--rose);}
+.pv-1 .vart{border-color:rgba(240,169,43,.24);}
+.pv-2 .vart{border-color:rgba(107,140,255,.24);}
+.pv-3 .vart{border-color:rgba(24,168,155,.24);}
+.pv-4 .vart{border-color:rgba(226,104,95,.24);}
+
+/* ---------- bridge card ---------- */
+.bridge{
+  display:grid;grid-template-columns:.78fr 1.22fr;gap:15px;min-height:262px;margin-top:50px;padding:15px;
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  box-shadow:var(--shadow-sm);overflow:hidden;
+  transition:border-color .24s ease,box-shadow .24s ease,background-color .24s ease;
+}
+.bridge:hover{border-color:var(--line-2);background:var(--raised);box-shadow:var(--shadow);}
+.bridge-copy{display:flex;flex-direction:column;padding:6px 7px;}
+.bridge-copy>span{color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.bridge-copy strong{margin-top:auto;font-size:clamp(22px,2.4vw,38px);font-weight:500;letter-spacing:-.055em;line-height:1.02;}
+.bridge-copy p{max-width:38ch;margin:15px 0 1px;color:var(--muted);font-size:12.5px;line-height:1.45;}
+.bridge-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:230px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--screen);}
+.bridge-art svg{width:100%;height:100%;transition:transform .55s var(--ease);}
+.bridge:hover .bridge-art svg{transform:scale(1.03);}
+.bridge-art>span{position:absolute;right:10px;bottom:9px;color:var(--muted);font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;}
+
+/* ---------- capability band ---------- */
+.band-alt{
+  position:relative;margin:0 calc(50% - 50vw);padding:76px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#0a0b0e 0%,#08090b 100%);
+}
+.band-alt::before{
+  position:absolute;inset:0;pointer-events:none;content:"";
+  background-image:linear-gradient(rgba(242,241,236,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(242,241,236,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 76%);
+  mask-image:radial-gradient(120% 78% at 50% 0%,#000 0%,transparent 76%);
+}
+.band-alt>.shell{position:relative;z-index:1;}
+
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.summary>div{min-height:86px;padding:15px 17px;border-right:1px solid var(--line);}
+.summary>div:last-child{border-right:0;}
+.summary span{color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.summary strong{display:block;margin-top:20px;font-size:13.5px;font-weight:500;letter-spacing:-.02em;}
+
+.caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:15px;}
+.cap{
+  display:flex;min-height:286px;flex-direction:column;padding:18px;
+  border:1px solid var(--line);border-radius:14px;background:rgba(20,23,28,.4);
+  transition:background-color .24s ease,border-color .24s ease,transform .24s var(--ease);
+}
+.cap:hover{background:rgba(28,32,38,.6);border-color:var(--line-2);transform:translateY(-2px);}
+.cap-head{display:flex;align-items:center;justify-content:space-between;gap:14px;color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.cap-head b{color:var(--amber);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;}
+.cap h3{margin:30px 0 10px;font-size:clamp(21px,1.85vw,29px);font-weight:500;letter-spacing:-.045em;line-height:1.04;}
+.cap>p{max-width:50ch;margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.55;}
+.cap-methods{display:flex;flex-wrap:wrap;gap:0;margin:18px 0 20px;padding:0;list-style:none;}
+.cap-methods li{font-size:11px;line-height:1.4;color:var(--muted);}
+.cap-methods li:not(:last-child)::after{margin:0 8px;color:var(--faint);content:"/";}
+.cap-out{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line);}
+.cap-out span{color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;}
+.cap-out strong{font-size:11.5px;font-weight:500;text-align:right;}
+
+/* ---------- experience timeline ---------- */
+.tl{margin-top:48px;}
+.tl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:14px;}
+.tl-head .section-title{font-size:13px;}
+.tl-row{
+  display:grid;grid-template-columns:.34fr .66fr;gap:0;min-height:150px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);
+  margin-top:12px;
+  transition:border-color .24s ease,background-color .24s ease,transform .24s var(--ease);
+}
+.tl-row:hover{border-color:var(--line-2);background:var(--raised);transform:translateY(-2px);}
+.tl-when{
+  display:flex;flex-direction:column;gap:8px;padding:20px;
+  border-right:1px solid var(--line);
+  background:rgba(255,255,255,.014);
+}
+.tl-when .fact-num{color:var(--faint);}
+.tl-role{margin:0;font-size:15px;font-weight:500;letter-spacing:-.02em;line-height:1.25;}
+.tl-org{margin:0;font-size:12px;color:var(--muted);line-height:1.4;}
+.tl-main{display:flex;flex-direction:column;gap:16px;padding:20px;}
+.tl-points{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+.tl-points li{position:relative;padding-left:16px;font-size:13px;line-height:1.5;color:var(--ink-2);}
+.tl-points li::before{position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--amber);content:"";}
+.tl-points li b{font-weight:500;color:var(--ink);}
+.tl-stack{display:flex;flex-wrap:wrap;gap:0;margin-top:auto;padding-top:13px;border-top:1px solid var(--line);}
+.tl-stack span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--muted);}
+.tl-stack span:not(:last-child)::after{margin:0 8px;color:var(--faint);content:"·";}
+
+/* education + certs */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px;}
+.sub-card{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .24s ease,background-color .24s ease;}
+.sub-card:hover{border-color:var(--line-2);background:var(--raised);}
+.sub-card>span{color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.edu-list{display:grid;gap:14px;margin:20px 0 0;}
+.edu{padding-bottom:14px;border-bottom:1px solid var(--line);}
+.edu:last-child{border-bottom:0;padding-bottom:0;}
+.edu-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;}
+.edu-top strong{font-size:13.5px;font-weight:500;letter-spacing:-.02em;}
+.edu-top time{font-family:var(--mono);font-size:9.5px;color:var(--faint);white-space:nowrap;}
+.edu p{margin:7px 0 0;font-size:12px;line-height:1.5;color:var(--muted);}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none;}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 12px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:11.5px;color:var(--ink-2);
+  transition:border-color .2s ease,color .2s ease,background-color .2s ease;
+}
+.badge:hover{border-color:var(--line-3);color:var(--ink);background:rgba(255,255,255,.03);}
+.badge i{width:5px;height:5px;border-radius:50%;background:var(--amber);}
+.badge.muted i{background:var(--faint);}
+.note{margin:18px 0 0;font-size:11.5px;line-height:1.5;color:var(--faint);}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:15px;margin-top:48px;}
+.about-copy,.about-art{
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+  transition:border-color .24s ease;
+}
+.about-copy:hover,.about-art:hover{border-color:var(--line-2);}
+.about-copy{display:flex;flex-direction:column;min-height:512px;}
+.about-large{max-width:34ch;margin:28px 20px 22px;font-size:clamp(23px,2.4vw,36px);font-weight:500;letter-spacing:-.05em;line-height:1.08;}
+.about-story{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0 20px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.about-story p{margin:0;padding:14px 15px 15px 0;font-size:12px;line-height:1.55;color:var(--ink-2);}
+.about-story p+p{padding-left:15px;border-left:1px solid var(--line);}
+.about-story span{display:block;margin-bottom:9px;color:var(--muted);font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;}
+.about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:26px 20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.about-facts>div{padding:11px 10px 12px 0;border-right:1px solid var(--line);}
+.about-facts>div:not(:first-child){padding-left:11px;}
+.about-facts>div:last-child{border-right:0;}
+.about-facts dt{margin:0;color:var(--muted);font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;}
+.about-facts dd{margin:9px 0 0;font-size:12px;line-height:1.35;}
+.about-small{max-width:56ch;margin:auto 20px 20px;color:var(--muted);font-size:12px;line-height:1.5;}
+
+.about-art{position:relative;display:flex;flex-direction:column;overflow:hidden;}
+.about-art .card-label{background:transparent;}
+.about-ill{position:relative;margin:15px;height:196px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--screen);}
+.about-ill svg{width:100%;height:100%;transition:transform .55s var(--ease);}
+.about-art:hover .about-ill svg{transform:scale(1.03);}
+.about-ill>span{position:absolute;right:10px;bottom:10px;padding:4px 8px;border:1px solid var(--line-2);border-radius:6px;background:rgba(10,12,15,.92);color:var(--muted);font-family:var(--mono);font-size:8px;letter-spacing:.08em;}
+.process{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0;padding:10px 15px 15px;list-style:none;}
+.process li{
+  display:flex;min-height:96px;flex-direction:column;padding:12px;
+  border:1px solid var(--line);border-radius:10px;background:rgba(10,12,15,.6);
+  transition:background-color .24s ease,transform .24s var(--ease),border-color .24s ease;
+}
+.process li:hover{background:rgba(255,255,255,.045);border-color:var(--line-2);transform:translateY(-2px);}
+.process li span{
+  display:grid;width:30px;height:30px;place-items:center;flex:0 0 auto;
+  border:1px solid var(--line-2);border-radius:50%;
+  background:var(--amber);color:#08090b;font-size:13px;font-weight:500;
+}
+.process li p{margin:auto 0 0;font-size:12.5px;line-height:1.35;letter-spacing:-.02em;}
+
+/* ---------- contact ---------- */
+.footer{padding:76px 0 26px;}
+.contact{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:30px;
+  min-height:248px;padding:26px;
+  border:1px solid rgba(240,169,43,.30);border-radius:16px;
+  background:linear-gradient(122deg,#1e1608 0%,#141019 46%,#0b0f18 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),var(--shadow);
+  transition:border-color .24s ease,box-shadow .24s ease;
+}
+.contact:hover{border-color:rgba(240,169,43,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 26px 60px rgba(0,0,0,.66);}
+.contact h2{max-width:22ch;margin:11px 0 0;font-size:clamp(28px,3.7vw,52px);font-weight:500;letter-spacing:-.055em;line-height:1.0;}
+.contact-ctx{max-width:56ch;margin:16px 0 0;color:var(--ink-2);font-size:12.5px;line-height:1.5;}
+.btn-amber{flex:0 0 auto;margin-bottom:3px;background:var(--amber);border-color:var(--amber);color:#08090b;}
+.btn-amber:hover{background:var(--amber-2);border-color:var(--amber-2);}
+
+.foot-grid{display:grid;grid-template-columns:1fr 1.1fr 1.15fr;gap:15px;margin-top:15px;}
+.foot-card{display:flex;min-height:206px;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .24s ease,background-color .24s ease;}
+.foot-card:hover{border-color:var(--line-2);background:var(--raised);}
+.foot-title{margin:0 0 18px;color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.foot-card a,.copy-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+  min-height:36px;padding:0;border-bottom:1px solid var(--line);
+  font-size:12.5px;text-align:left;color:var(--ink);
+  transition:color .2s ease,border-color .2s ease,padding-left .22s var(--ease);
+}
+.foot-card a:hover{color:var(--amber);padding-left:5px;}
+.copy-row:hover{color:var(--amber);}
+.foot-card .val{font-family:var(--mono);font-size:11px;color:var(--muted);transition:color .2s ease;}
+.foot-card a:hover .val,.copy-row:hover .val{color:var(--amber);}
+.copy-row.revealed .val{color:var(--ink);}
+.copy-row .lock{color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.06em;}
+.copy-row.revealed .lock{color:var(--teal);}
+.foot-note p{max-width:34ch;margin:0;font-size:12.5px;line-height:1.5;color:var(--ink-2);}
+.foot-note .credit{margin-top:13px;color:var(--muted);font-size:11px;line-height:1.5;}
+.foot-note>span{margin-top:auto;padding-top:14px;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.08em;}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;right:50%;bottom:24px;z-index:90;
+  display:flex;max-width:min(420px,calc(100vw - 28px));align-items:center;gap:10px;
+  padding:10px 14px 10px 10px;
+  border:1px solid var(--line-2);border-radius:11px;
+  background:rgba(20,23,28,.96);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;transform:translate(50%,16px);
+  transition:opacity .22s ease,transform .3s var(--ease);
+}
+.toast.on{opacity:1;transform:translate(50%,0);}
+.toast i{
+  display:grid;width:24px;height:24px;flex:0 0 auto;place-items:center;
+  border-radius:50%;background:var(--amber);color:#08090b;
+  font-size:11px;font-weight:600;font-style:normal;
+}
+.toast p{margin:0;font-size:12px;line-height:1.35;}
+
+/* ---------- 全部项目索引 ---------- */
+.pstat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.pstat>div{min-height:82px;padding:14px 16px;border-right:1px solid var(--line);}
+.pstat>div:last-child{border-right:0;}
+.pstat span{color:var(--muted);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;}
+.pstat strong{display:block;margin-top:18px;font-size:13.5px;font-weight:500;letter-spacing:-.02em;}
+.pgroup{margin-top:24px;}
+.pgroup-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.pgroup-head b{color:var(--amber);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;}
+.pgroup-head span{flex:1;font-size:12.5px;color:var(--ink-2);letter-spacing:-.01em;}
+.pgroup-head em{font-family:var(--mono);font-size:9.5px;font-style:normal;color:var(--faint);letter-spacing:.09em;text-transform:uppercase;}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px;}
+.pcard{display:flex;flex-direction:column;min-height:136px;padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--surface);transition:border-color .22s ease,background-color .22s ease,transform .22s var(--ease);}
+.pcard:hover{border-color:var(--line-2);background:var(--raised);transform:translateY(-2px);}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.pcard-idx{color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.12em;}
+.pcard-repo{color:var(--muted);font-family:var(--mono);font-size:8.5px;letter-spacing:.03em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:64%;}
+.pcard h3{margin:11px 0 0;font-size:14px;font-weight:500;letter-spacing:-.025em;line-height:1.2;}
+.pcard p{margin:7px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted);}
+.pcard-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:11px;border-top:1px solid var(--line);}
+.pcard-foot span{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--faint);}
+.pcard:hover .pcard-foot span{color:var(--amber);}
+@media (max-width:1279px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));}.pstat{grid-template-columns:repeat(2,minmax(0,1fr));}.pstat>div:nth-child(2){border-right:0;}.pstat>div{border-bottom:1px solid var(--line);}.pstat>div:nth-child(3),.pstat>div:nth-child(4){border-bottom:0;}}
+@media (max-width:767px){.pgrid{grid-template-columns:1fr;}.pstat{grid-template-columns:1fr;}.pstat>div{border-right:0;border-bottom:1px solid var(--line)!important;}.pstat>div:last-child{border-bottom:0!important;}.pgroup{margin-top:20px;}.pgroup-head{flex-wrap:wrap;gap:6px 10px;}.pgroup-head em{flex-basis:100%;}.pcard{min-height:0;}}
+
+/* ---------- reveal ---------- */
+.motion [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .66s var(--ease),transform .66s var(--ease);transition-delay:var(--d,0ms);}
+.motion [data-reveal].in{opacity:1;transform:none;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1279px){
+  .grid{grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,92px);}
+  .identity{grid-column:1/span 4;grid-row:1/span 4;}
+  .intro{grid-column:5/span 4;grid-row:1/span 2;}
+  .signal{grid-column:5/span 2;grid-row:3/span 2;}
+  .cv{grid-column:7/span 2;grid-row:3/span 2;}
+  .cv-word{font-size:30px;padding:7px 13px 1px;}
+  .cv-actions{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 10px 10px;}
+  .dl{padding:0 8px;font-size:10.5px;}
+  .skills{grid-column:1/span 4;grid-row:5/span 2;}
+  .hero-project{grid-column:5/span 4;grid-row:5/span 4;}
+  .explore{grid-column:1/span 4;grid-row:7/span 2;}
+  .explore-link{min-height:38px;}
+  .explore-link.opt{display:none;}
+  .prow,.prow.flip{grid-template-columns:minmax(250px,.92fr) minmax(0,1.6fr);}
+  .pinfo,.pvisual{min-height:498px;}
+  .vstage{grid-template-columns:minmax(0,1.05fr) minmax(172px,.75fr);gap:18px;padding:18px;}
+  .vstage.flip{grid-template-columns:minmax(172px,.75fr) minmax(0,1.05fr);}
+  .vfeat strong{font-size:26px;}
+  .about-copy,.about-art{min-height:600px;}
+}
+@media (min-width:768px) and (max-width:1023px){
+  .identity{--scene-h:clamp(150px,17vw,176px);}
+  .intro-body{display:flex;flex-direction:column;gap:12px;padding:12px 14px 14px;}
+  .intro-meta{width:100%;margin-top:auto;}
+  .btn-primary{align-self:flex-end;min-height:36px;padding:0 13px;}
+  .preview-note{width:41%;}
+  .about-ill>span{bottom:calc(214px - 22px);}
+}
+@media (max-width:767px){
+  .nav{min-height:62px;padding:9px 14px;gap:8px;}
+  .name-pill{max-width:150px;min-height:34px;padding:0 11px;font-size:11.5px;white-space:nowrap;overflow:hidden;}
+  .name-pill .role,.name-pill .divider{display:none;}
+  .divider{height:11px;}
+  .nav-links{gap:4px;}
+  .nav-links a{min-width:40px;min-height:34px;justify-content:center;padding:0 9px;font-size:11.5px;white-space:nowrap;}
+  .shell{padding:0 14px;}
+  .hero{padding:14px 0 58px;}
+  .section-kicker{padding-bottom:10px;font-size:9px;}
+  .section-kicker span:last-child{display:none;}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:10px;}
+  .card{min-height:0;}
+  .identity{grid-column:1/-1;grid-row:1;--scene-h:190px;}
+  .identity h1{font-size:clamp(22px,5.4vw,30px);}
+  .intro{grid-column:1/-1;grid-row:2;min-height:264px;}
+  .intro-body{display:flex;flex-direction:column;gap:13px;padding:14px;}
+  .intro-body>p{font-size:15px;}
+  .intro-meta{width:100%;margin-top:auto;}
+  .btn-primary{width:100%;}
+  .hero-project{grid-column:1/-1;grid-row:3;min-height:404px;}
+  .preview{min-height:262px;}
+  .preview-note{top:auto;bottom:0;width:100%;height:38%;border-top:1px solid var(--line-2);border-left:0;}
+  .preview-note strong{margin:8px 0 6px;font-size:14px;}
+  .skills{grid-column:1/-1;grid-row:4;}
+  .signal{grid-column:1;grid-row:5;min-height:196px;}
+  .cv{grid-column:2;grid-row:5;min-height:196px;}
+  .cv-word{font-size:34px;}
+  .explore{grid-column:1/-1;grid-row:6;min-height:184px;}
+  .band{padding-bottom:56px;}
+  .band-alt{padding:52px 0;}
+  .section-head{align-items:flex-start;flex-direction:column;gap:12px;}
+  .section-head p{text-align:left;font-size:13px;}
+  .prow,.prow.flip{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+  .pvisual{order:-1;min-height:0;height:452px;}
+  .prow.flip .pvisual{order:-1;}
+  .pinfo{min-height:0;padding:16px;}
+  .pinfo h2{font-size:40px;}
+  .ptype{max-width:none;margin-top:10px;}
+  .pfacts{margin:22px 0 18px;}
+  .vhead,.vfoot{padding:0 13px;font-size:9px;}
+  .vstage,.vstage.flip{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:12px;padding:13px;}
+  .vart{min-height:212px;}
+  .vfeat{min-height:104px;}
+  .vfeat strong{margin-top:9px;font-size:22px;}
+  .vfeat p{margin-top:8px;}
+  .vfeat small{display:none;}
+  .bridge{display:flex;flex-direction:column;gap:12px;min-height:400px;margin-top:34px;padding:11px;}
+  .bridge-copy{min-height:168px;padding:5px;}
+  .bridge-copy strong{font-size:26px;}
+  .bridge-art{min-height:212px;}
+  .summary{grid-template-columns:1fr;margin-top:10px;}
+  .summary>div{min-height:74px;border-right:0;border-bottom:1px solid var(--line);}
+  .summary>div:last-child{border-bottom:0;}
+  .summary strong{margin-top:12px;}
+  .caps{grid-template-columns:1fr;gap:10px;margin-top:10px;}
+  .cap{min-height:0;}
+  .cap h3{margin:24px 0 9px;}
+  .tl{margin-top:34px;}
+  .tl-head{align-items:flex-start;flex-direction:column;gap:10px;}
+  .tl-row{grid-template-columns:1fr;min-height:0;}
+  .tl-when{border-right:0;border-bottom:1px solid var(--line);}
+  .tl-main{padding:16px;}
+  .dual{grid-template-columns:1fr;gap:10px;}
+  .about-grid{grid-template-columns:1fr;gap:10px;margin-top:34px;}
+  .about-copy{min-height:0;}
+  .about-large{margin:22px 15px 18px;font-size:26px;}
+  .about-story{grid-template-columns:1fr;margin:0 15px 16px;}
+  .about-story p{padding:12px 0;}
+  .about-story p+p{padding-left:0;border-top:1px solid var(--line);border-left:0;}
+  .about-facts{grid-template-columns:1fr;margin:0 15px 16px;}
+  .about-facts>div,.about-facts>div:not(:first-child){padding:9px 0;border-right:0;border-bottom:1px solid var(--line);}
+  .about-facts>div:last-child{border-bottom:0;}
+  .about-facts dt,.about-facts dd{display:inline;}
+  .about-facts dd{margin-left:11px;}
+  .about-small{margin:0 15px 16px;}
+  .about-art{min-height:0;}
+  .about-ill{height:196px;}
+  .process{grid-template-columns:repeat(2,1fr);padding:10px 12px 12px;}
+  .process li{min-height:132px;}
+  .footer{padding:52px 0 18px;}
+  .contact{align-items:flex-start;flex-direction:column;min-height:280px;padding:18px;}
+  .contact h2{font-size:36px;}
+  .contact-ctx{margin-top:13px;}
+  .btn-amber{width:100%;}
+  .foot-grid{grid-template-columns:1fr;gap:10px;margin-top:10px;}
+  .foot-card{min-height:172px;}
+}
+@media (max-width:420px){
+  .name-pill .role,.name-pill .divider{display:none;}
+  .nav{gap:8px;}
+  .nav-links a{min-width:40px;padding:0 7px;}
+  .pvisual{height:420px;}
+  .contact h2{font-size:31px;}
+  .vart{min-height:190px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;}
+  .motion [data-reveal]{opacity:1;transform:none;}
+  .scene:hover svg{animation:none;}
+}
+@media print{
+  body::before,.nav,.toast,.progress{display:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" role="status" aria-live="polite"><i aria-hidden="true">✓</i><p></p></div>
+
+<nav class="nav" aria-label="主导航">
+  <a class="name-pill" href="#top" aria-label="回到首页">
+    <b>蒋汶睿</b><span class="divider" aria-hidden="true"></span><span class="role">IT / 安全合规 / DevSecOps</span>
+  </a>
+  <div class="nav-links">
+    <a href="#projects">精选</a>
+    <a href="#all-projects">全部项目</a>
+    <a href="#capability">能力</a>
+    <a href="#experience">经历</a>
+    <a href="#contact">联系</a>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+</nav>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="shell hero" aria-labelledby="intro-title">
+    <div class="section-kicker">
+      <span>个人主页 / 2026</span>
+      <span>南京 · 可远程 · 开放机会</span>
+    </div>
+
+    <div class="grid">
+
+      <!-- 01 identity -->
+      <article class="card identity enter">
+        <div class="card-label"><span>01 / 身份</span><span>IT ANALYST</span></div>
+        <div class="identity-body">
+          <div class="scene">
+            <svg viewBox="0 0 640 240" role="img" aria-label="身份与系统拓扑示意图：中心节点连接多个企业系统模块">
+              <defs>
+                <pattern id="g-id" width="22" height="22" patternUnits="userSpaceOnUse">
+                  <path d="M22 0H0V22" fill="none" stroke="rgba(242,241,236,.055)" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="id-shield" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#f0a92b" stop-opacity=".22"/>
+                  <stop offset="1" stop-color="#f0a92b" stop-opacity=".03"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="240" fill="#0a0c0f"/>
+              <rect width="640" height="240" fill="url(#g-id)"/>
+
+              <g stroke="rgba(242,241,236,.20)" stroke-width="1">
+                <path d="M320 118 L320 42"/><path d="M320 118 L374 64"/>
+                <path d="M320 118 L396 118"/><path d="M320 118 L374 172"/>
+                <path d="M320 118 L320 194"/><path d="M320 118 L266 172"/>
+                <path d="M320 118 L244 118"/><path d="M320 118 L266 64"/>
+              </g>
+              <g stroke="#f0a92b" stroke-opacity=".62" stroke-width="1.25">
+                <path d="M320 118 L320 42"/><path d="M320 118 L396 118"/><path d="M320 118 L266 172"/>
+              </g>
+
+              <circle cx="320" cy="118" r="76" fill="none" stroke="rgba(242,241,236,.13)" stroke-width="1" stroke-dasharray="3 6"/>
+              <circle cx="320" cy="118" r="100" fill="none" stroke="rgba(242,241,236,.07)" stroke-width="1"/>
+              <path d="M320 18 a100 100 0 0 1 92 50" fill="none" stroke="#f0a92b" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round"/>
+
+              <g fill="#0a0c0f" stroke="rgba(242,241,236,.36)" stroke-width="1">
+                <rect x="314" y="36" width="12" height="12" transform="rotate(45 320 42)"/>
+                <rect x="368" y="58" width="12" height="12" transform="rotate(45 374 64)"/>
+                <rect x="390" y="112" width="12" height="12" transform="rotate(45 396 118)"/>
+                <rect x="368" y="166" width="12" height="12" transform="rotate(45 374 172)"/>
+                <rect x="314" y="188" width="12" height="12" transform="rotate(45 320 194)"/>
+                <rect x="260" y="166" width="12" height="12" transform="rotate(45 266 172)"/>
+                <rect x="238" y="112" width="12" height="12" transform="rotate(45 244 118)"/>
+                <rect x="260" y="58" width="12" height="12" transform="rotate(45 266 64)"/>
+              </g>
+              <g fill="none" stroke="#f0a92b" stroke-width="1.5">
+                <rect x="314" y="36" width="12" height="12" transform="rotate(45 320 42)"/>
+                <rect x="390" y="112" width="12" height="12" transform="rotate(45 396 118)"/>
+                <rect x="260" y="166" width="12" height="12" transform="rotate(45 266 172)"/>
+              </g>
+
+              <path d="M320 72 L354 87 V120 C354 144 338 160 320 168 C302 160 286 144 286 120 V87 Z"
+                    fill="url(#id-shield)" stroke="#f0a92b" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M308 118 L317 127 L335 107" fill="none" stroke="#f0a92b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.1" fill="#4a4e57">
+                <text x="18" y="24">SYS · IDM · GRC · RAG</text>
+                <text x="18" y="228">ENTROPY / 31 MODULES</text>
+                <text x="622" y="228" text-anchor="end">TRACEABLE</text>
+              </g>
+            </svg>
+            <span class="stamp" aria-hidden="true">JWR / 26</span>
+          </div>
+          <div>
+            <p class="micro">JIANG WENRUI / IT · SECURITY · DEVSECOPS → AI ENGINEERING</p>
+            <h1 id="intro-title" style="margin-top:9px">把企业级 IT 的严谨，<br/>带进 AI 工程。</h1>
+          </div>
+        </div>
+        <p class="identity-foot">4 年企业级 IT 交付 · 31 个开源项目 · 备考 AI 方向非全日制研究生</p>
+      </article>
+
+      <!-- 02 intro -->
+      <article class="card intro enter">
+        <div class="card-label"><span>02 / 简介</span><span class="live"><i aria-hidden="true"></i>开放机会</span></div>
+        <div class="intro-body">
+          <p>在克诺尔负责 APAC 多地区企业 IT 之前，我在微创软件做 Intune Premium 二线支持——一年约 750 个工单，满意度 5 分。这几年我把「出问题要能定位、结论要能追溯」用在三处：检索有证据、合规可回放、流水线不存明文密钥。</p>
+          <dl class="intro-meta">
+            <div><dt>方向</dt><dd>安全 / DevSecOps</dd></div>
+            <div><dt>经验</dt><dd>4 年企业 IT</dd></div>
+            <div><dt>语言</dt><dd>中文 / 英文</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#projects">查看精选项目 <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <!-- 03 signal -->
+      <article class="card signal enter">
+        <div class="card-label"><span>Field note</span><span>03</span></div>
+        <div class="signal-body">
+          <strong>31</strong>
+          <p>个端到端开源项目，累计 200+ API endpoints、800+ 自动化测试，全部原创。</p>
+        </div>
+        <a class="text-link" href="#capability">了解我的做法 <span class="arrow" aria-hidden="true">→</span></a>
+      </article>
+
+      <!-- 04 cv -->
+      <article class="card cv enter">
+        <div class="card-label"><span>资料</span><span>04</span></div>
+        <div class="cv-word">CV</div>
+        <dl class="cv-meta">
+          <div><dt>内容</dt><dd>经历 / 项目 / 能力</dd></div>
+          <div><dt>页数</dt><dd>3 页 / 语言</dd></div>
+          <div><dt>更新</dt><dd>2026-10</dd></div>
+        </dl>
+        <div class="cv-actions">
+          <a class="dl" href="assets/jiang-wenrui-resume-cn.pdf" download>中文简历 <span class="arrow" aria-hidden="true">↓</span></a>
+          <a class="dl" href="assets/jiang-wenrui-resume-en.pdf" download>English CV <span class="arrow" aria-hidden="true">↓</span></a>
+        </div>
+      </article>
+
+      <!-- 05 skills -->
+      <article class="card skills enter">
+        <div class="card-label"><span>专业能力</span><span>04 组</span></div>
+        <div class="skill-list">
+          <div><span>01 / 云与身份</span><strong>Entra ID · Zscaler · 多云合规</strong></div>
+          <div><span>02 / DevSecOps</span><strong>CI/CD · K8s / Tekton · 灰度回滚</strong></div>
+          <div><span>03 / 合规与安全</span><strong>ISO 27001 · CISSP · PIPL / GDPR</strong></div>
+          <div><span>04 / AI 工程</span><strong>RAG · 检索评估 · Prompt 规范</strong></div>
+        </div>
+      </article>
+
+      <!-- 06 hero project -->
+      <article class="card hero-project enter">
+        <div class="card-label"><span>项目预览 / 01</span><span>AI 应用工程</span></div>
+        <div class="preview">
+          <svg viewBox="0 0 640 290" role="img" aria-label="需求追溯矩阵示意图：一条 V 形高亮路径贯穿需求、设计、实现与验证阶段">
+              <defs>
+                <pattern id="mx" width="26" height="27" patternUnits="userSpaceOnUse" x="68" y="72">
+                  <rect width="9" height="9" rx="1.5" fill="rgba(242,241,236,.09)"/>
+                </pattern>
+                <linearGradient id="hp-fade" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#f0a92b" stop-opacity="0"/>
+                  <stop offset=".5" stop-color="#f0a92b" stop-opacity=".16"/>
+                  <stop offset="1" stop-color="#f0a92b" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="290" fill="#0a0c0f"/>
+              <rect x="68" y="72" width="312" height="162" fill="url(#mx)"/>
+
+              <g fill="#f0a92b">
+                <rect x="94" y="72" width="9" height="9" rx="1.5"/>
+                <rect x="146" y="99" width="9" height="9" rx="1.5"/>
+                <rect x="198" y="126" width="9" height="9" rx="1.5"/>
+                <rect x="250" y="153" width="9" height="9" rx="1.5"/>
+                <rect x="302" y="180" width="9" height="9" rx="1.5"/>
+                <rect x="250" y="126" width="9" height="9" rx="1.5"/>
+                <rect x="198" y="72" width="9" height="9" rx="1.5"/>
+              </g>
+              <path d="M98 77 L150 104 L202 131 L254 158 L306 185 L254 131 L202 77"
+                    fill="none" stroke="#f0a92b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+              <circle cx="306" cy="185" r="4.5" fill="none" stroke="#f0a92b" stroke-width="1.5"/>
+
+              <rect x="52" y="58" width="352" height="190" fill="url(#hp-fade)" opacity=".55"/>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#4a4e57">
+                <text x="94" y="256">R1</text><text x="146" y="256">R2</text><text x="198" y="256">R3</text>
+                <text x="250" y="256">R4</text><text x="302" y="256">R5</text>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2" fill="#4a4e57">
+                <text x="18" y="26">REQ → DESIGN → BUILD → VERIFY</text>
+                <text x="18" y="272">V-MODEL TRACEABILITY</text>
+                <text x="622" y="272" text-anchor="end">1 : 1 LINKAGE</text>
+              </g>
+            </svg>
+          <div class="preview-note">
+            <span>Guardrail / 短路</span>
+            <strong>命中高危关键词时，直接返回急救话术，不经过 LLM 合成。</strong>
+            <small>护栏先于生成 / Evidence before generation</small>
+          </div>
+        </div>
+        <div class="hero-project-foot">
+          <div>
+            <p class="micro">RAG / 母婴 AI 助手</p>
+            <h2>护栏</h2>
+          </div>
+          <a class="hero-case-link" href="#project-1">查看项目</a>
+        </div>
+      </article>
+
+      <!-- 07 index -->
+      <article class="card explore enter">
+        <div class="card-label"><span>索引</span><span>05</span></div>
+        <a href="#projects" class="explore-link"><span>精选项目</span><small>01</small></a>
+        <a href="#capability" class="explore-link"><span>能力与方法</span><small>02</small></a>
+        <a href="#all-projects" class="explore-link"><span>全部项目</span><small>29</small></a>
+        <a href="#experience" class="explore-link"><span>工作经历</span><small>03</small></a>
+        <a href="#about" class="explore-link opt"><span>关于我</span><small>04</small></a>
+        <a href="#contact" class="explore-link"><span>联系方式</span><small>05</small></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="shell band" id="projects" aria-labelledby="projects-title">
+    <div class="section-head" data-reveal>
+      <span class="section-title" id="projects-title">精选项目</span>
+      <p>先看这四个——可信检索、证据一致、合规落地与身份安全。下方「全部项目」收录其余所有公开仓库。</p>
+    </div>
+
+    <!-- 01 护栏 -->
+    <article class="prow" id="project-1" data-reveal>
+      <div class="pinfo">
+        <p class="pindex">01 / AI 应用工程 · 检索增强</p>
+        <h2>护栏</h2>
+        <p class="ptype">一个给自家用的母婴 AI 助手。设计前提不是"答得好"，而是"答错会出人命"——所以宁可漏答，绝不编造。</p>
+        <dl class="pfacts">
+          <div><dt>真实场景</dt><dd>新生儿与孕期护理问答</dd></div>
+          <div><dt>核心约束</dt><dd>答案必须可溯源</dd></div>
+          <div><dt>关键机制</dt><dd>检索护栏 + 高危短路</dd></div>
+          <div><dt>交付形态</dt><dd>钉钉 / 企业微信机器人</dd></div>
+        </dl>
+        <div class="pfoot">
+          <div class="pmeta"><span>2024—2026</span><span>Python · FAISS · BGE · FastAPI</span></div>
+          <button class="case-link" type="button" data-toast="项目细节可在面试中完整展开">查看实现要点 <span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="pvisual pv-1">
+        <div class="vhead"><span>01 / 护栏</span><span>Retrieval Guardrail</span></div>
+        <div class="vstage">
+          <div class="vart">
+            <svg viewBox="0 0 620 400" role="img" aria-label="检索护栏流程示意：查询经检索召回后进入护栏校验，通过才允许生成答案">
+              <defs>
+                <marker id="ar-a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                  <path d="M0 0 L7 3.5 L0 7 z" fill="#f0a92b"/>
+                </marker>
+              </defs>
+              <rect width="620" height="400" fill="#0b0d10"/>
+
+              <circle cx="112" cy="200" r="52" fill="none" stroke="#f0a92b" stroke-opacity=".42" stroke-width="1.2" stroke-dasharray="2 7"/>
+              <circle cx="112" cy="200" r="76" fill="none" stroke="#f0a92b" stroke-opacity=".26" stroke-width="1.2" stroke-dasharray="2 7"/>
+              <circle cx="112" cy="200" r="100" fill="none" stroke="#f0a92b" stroke-opacity=".14" stroke-width="1.2" stroke-dasharray="2 7"/>
+              <path d="M112 200 L112 100" stroke="#f0a92b" stroke-width="1.4"/>
+              <path d="M112 200 L181 241" stroke="#f0a92b" stroke-width="1.4"/>
+              <path d="M112 200 L43 241" stroke="#f0a92b" stroke-width="1.4"/>
+              <circle cx="112" cy="100" r="4" fill="#f0a92b"/>
+              <circle cx="181" cy="241" r="4" fill="#f0a92b"/>
+              <circle cx="43" cy="241" r="4" fill="#f0a92b"/>
+              <rect x="62" y="186" width="100" height="28" rx="14" fill="#15100a" stroke="#f0a92b" stroke-opacity=".7" stroke-width="1.2"/>
+              <text x="112" y="204" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" letter-spacing="1.4" fill="#ffc55c">QUERY</text>
+              <text x="112" y="330" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2" fill="#4a4e57">TOP-K RECALL</text>
+
+              <path d="M222 200 L300 200" stroke="#f0a92b" stroke-width="1.3" marker-end="url(#ar-a)"/>
+
+              <path d="M306 62 L306 338" stroke="rgba(242,241,236,.3)" stroke-width="1.2" stroke-dasharray="4 5"/>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2">
+                <circle cx="306" cy="118" r="5" fill="#f0a92b"/>
+                <circle cx="306" cy="200" r="5" fill="#0b0d10" stroke="#e2685f" stroke-width="1.4"/>
+                <circle cx="306" cy="282" r="5" fill="#0b0d10" stroke="rgba(242,241,236,.5)" stroke-width="1.4"/>
+                <text x="322" y="121" fill="#ffc55c">EVIDENCE</text>
+                <text x="322" y="203" fill="#e2685f">HIGH-RISK</text>
+                <text x="322" y="285" fill="#787d88">CITE-CHECK</text>
+              </g>
+              <path d="M330 200 L360 200" stroke="#e2685f" stroke-width="1.2" stroke-dasharray="3 4"/>
+              <rect x="352" y="152" width="128" height="26" rx="6" fill="#1a0f0f" stroke="#e2685f" stroke-opacity=".5" stroke-width="1"/>
+              <text x="416" y="169" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#e2685f">SHORT-CIRCUIT</text>
+
+              <rect x="360" y="216" width="232" height="126" rx="11" fill="#0f1216" stroke="rgba(242,241,236,.2)" stroke-width="1.2"/>
+              <path d="M360 243 L592 243" stroke="rgba(242,241,236,.14)" stroke-width="1"/>
+              <circle cx="376" cy="230" r="3" fill="#f0a92b"/><circle cx="388" cy="230" r="3" fill="rgba(242,241,236,.22)"/><circle cx="400" cy="230" r="3" fill="rgba(242,241,236,.22)"/>
+              <text x="578" y="233" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#4a4e57">ANSWER</text>
+              <g fill="rgba(242,241,236,.24)">
+                <rect x="376" y="258" width="196" height="7" rx="3.5"/>
+                <rect x="376" y="274" width="168" height="7" rx="3.5"/>
+                <rect x="376" y="290" width="140" height="7" rx="3.5"/>
+              </g>
+              <g>
+                <rect x="376" y="310" width="96" height="18" rx="9" fill="rgba(240,169,43,.14)" stroke="rgba(240,169,43,.4)" stroke-width="1"/>
+                <circle cx="389" cy="319" r="3" fill="#f0a92b"/>
+                <text x="398" y="322" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing=".8" fill="#ffc55c">SOURCE 01</text>
+                <rect x="480" y="310" width="96" height="18" rx="9" fill="rgba(240,169,43,.14)" stroke="rgba(240,169,43,.4)" stroke-width="1"/>
+                <circle cx="493" cy="319" r="3" fill="#f0a92b"/>
+                <text x="502" y="322" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing=".8" fill="#ffc55c">SOURCE 02</text>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2" fill="#4a4e57">
+                <text x="20" y="26">GUARDED GENERATION</text>
+                <text x="600" y="380" text-anchor="end">NO EVIDENCE → NO ANSWER</text>
+              </g>
+            </svg>
+          </div>
+          <div class="vfeat">
+            <span>核心判断</span>
+            <strong>宁可漏答，不可错答。</strong>
+            <p>检索不到证据就不回答；命中高危症状直接短路到急救话术，绕过 LLM 合成。入库设三道关卡防编造。</p>
+            <small>51 条知识条目 · 150 条回归评估</small>
+          </div>
+        </div>
+        <div class="vfoot"><span>钉钉 Stream · 企业微信回调</span><span>Hit@1 目标 ≥ 60%</span></div>
+      </div>
+    </article>
+
+    <!-- 02 原件 -->
+    <article class="prow flip" id="project-2" data-reveal style="--d:60ms">
+      <div class="pinfo">
+        <p class="pindex">02 / AI 应用工程 · 检索式知识库</p>
+        <h2>原件</h2>
+        <p class="ptype">个人知识库与题库系统。硬性要求是知识条目与源 PDF 一一对应——检索路径上不放 LLM，避免"总结"改写原文。</p>
+        <dl class="pfacts">
+          <div><dt>真实场景</dt><dd>个人知识库与题库</dd></div>
+          <div><dt>核心约束</dt><dd>KB 与源 PDF 1:1</dd></div>
+          <div><dt>关键机制</dt><dd>纯 BM25 召回</dd></div>
+          <div><dt>交付形态</dt><dd>钉钉 / 企微 / 飞书</dd></div>
+        </dl>
+        <div class="pfoot">
+          <div class="pmeta"><span>2025—2026</span><span>Python · SQLite · BM25 · OCR</span></div>
+          <button class="case-link" type="button" data-toast="项目细节可在面试中完整展开">查看实现要点 <span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="pvisual pv-2">
+        <div class="vhead"><span>02 / 原件</span><span>Source of Truth</span></div>
+        <div class="vstage flip">
+          <div class="vfeat">
+            <span>核心判断</span>
+            <strong>检索路径上不放 LLM。</strong>
+            <p>BM25 负责召回，LLM 只用于 OCR 兜底、查询重写和图像合成三个窄场景。合成阶段拒绝无证据回答。</p>
+            <small>494 题题库 · 3 层 OCR 核查</small>
+          </div>
+          <div class="vart">
+            <svg viewBox="0 0 620 400" role="img" aria-label="知识库与源文档一一对应示意图：左侧 PDF 分块，右侧索引条目，两侧由 1:1 连线绑定">
+              <defs>
+                <marker id="ar-b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                  <path d="M0 0 L7 3.5 L0 7 z" fill="#6b8cff"/>
+                </marker>
+              </defs>
+              <rect width="620" height="400" fill="#0b0d10"/>
+
+              <text x="46" y="46" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">SOURCE PDF</text>
+              <rect x="46" y="60" width="184" height="286" rx="9" fill="#0f1216" stroke="rgba(242,241,236,.18)" stroke-width="1.2"/>
+              <g fill="rgba(242,241,236,.17)">
+                <rect x="64" y="82" width="148" height="6" rx="3"/><rect x="64" y="98" width="120" height="6" rx="3"/>
+                <rect x="64" y="122" width="148" height="6" rx="3"/><rect x="64" y="138" width="132" height="6" rx="3"/>
+                <rect x="64" y="162" width="148" height="6" rx="3"/><rect x="64" y="178" width="112" height="6" rx="3"/>
+                <rect x="64" y="202" width="148" height="6" rx="3"/><rect x="64" y="218" width="140" height="6" rx="3"/>
+                <rect x="64" y="242" width="126" height="6" rx="3"/><rect x="64" y="258" width="148" height="6" rx="3"/>
+                <rect x="64" y="282" width="134" height="6" rx="3"/><rect x="64" y="298" width="104" height="6" rx="3"/>
+                <rect x="64" y="322" width="148" height="6" rx="3"/>
+              </g>
+              <g stroke="#6b8cff" stroke-width="1.6" fill="none">
+                <path d="M40 118 H46"/><path d="M40 204 H46"/><path d="M40 290 H46"/>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#6b8cff">
+                <text x="30" y="100">C1</text><text x="30" y="186">C2</text><text x="30" y="272">C3</text>
+              </g>
+
+              <g stroke="#6b8cff" stroke-opacity=".65" stroke-width="1.2" stroke-dasharray="3 4">
+                <path d="M230 118 L392 128" marker-end="url(#ar-b)"/>
+                <path d="M230 204 L392 214" marker-end="url(#ar-b)"/>
+                <path d="M230 290 L392 300" marker-end="url(#ar-b)"/>
+              </g>
+              <text x="311" y="96" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#4a4e57">1 : 1</text>
+
+              <text x="392" y="46" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">KB INDEX</text>
+              <g>
+                <rect x="392" y="60" width="182" height="90" rx="9" fill="#0f1216" stroke="rgba(107,140,255,.3)" stroke-width="1.2"/>
+                <text x="408" y="82" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#6b8cff">CHUNK C1</text>
+                <rect x="408" y="92" width="150" height="5" rx="2.5" fill="rgba(242,241,236,.16)"/>
+                <rect x="408" y="118" width="150" height="5" rx="2.5" fill="rgba(61,99,240,.16)"/>
+                <rect x="408" y="132" width="118" height="7" rx="3.5" fill="rgba(242,241,236,.2)"/>
+                <text x="558" y="139" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="8" fill="#6b8cff">8.42</text>
+
+                <rect x="392" y="160" width="182" height="90" rx="9" fill="#0f1216" stroke="rgba(107,140,255,.3)" stroke-width="1.2"/>
+                <text x="408" y="182" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#6b8cff">CHUNK C2</text>
+                <rect x="408" y="192" width="150" height="5" rx="2.5" fill="rgba(242,241,236,.16)"/>
+                <rect x="408" y="218" width="150" height="5" rx="2.5" fill="rgba(61,99,240,.16)"/>
+                <rect x="408" y="232" width="96" height="7" rx="3.5" fill="rgba(242,241,236,.2)"/>
+                <text x="558" y="239" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="8" fill="#6b8cff">6.05</text>
+
+                <rect x="392" y="260" width="182" height="90" rx="9" fill="#0f1216" stroke="rgba(107,140,255,.3)" stroke-width="1.2"/>
+                <text x="408" y="282" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#6b8cff">CHUNK C3</text>
+                <rect x="408" y="292" width="150" height="5" rx="2.5" fill="rgba(242,241,236,.16)"/>
+                <rect x="408" y="318" width="150" height="5" rx="2.5" fill="rgba(61,99,240,.16)"/>
+                <rect x="408" y="332" width="132" height="7" rx="3.5" fill="rgba(242,241,236,.2)"/>
+                <text x="558" y="339" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="8" fill="#6b8cff">9.11</text>
+              </g>
+
+              <rect x="392" y="360" width="182" height="24" rx="12" fill="rgba(24,168,155,.12)" stroke="rgba(24,168,155,.36)" stroke-width="1"/>
+              <circle cx="410" cy="372" r="3.5" fill="#18a89b"/>
+              <text x="422" y="375" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#7fd8cf">1:1 AUDIT PASSED</text>
+              <text x="46" y="378" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#4a4e57">HASH-DEDUP · IDEMPOTENT</text>
+            </svg>
+          </div>
+        </div>
+        <div class="vfoot"><span>BM25 + TF-IDF 双引擎</span><span>100+ 知识条目 · 494 题</span></div>
+      </div>
+    </article>
+
+    <!-- 03 留痕 -->
+    <article class="prow" id="project-3" data-reveal style="--d:60ms">
+      <div class="pinfo">
+        <p class="pindex">03 / 安全与合规工程 · GRC 平台</p>
+        <h2>留痕</h2>
+        <p class="ptype">把企业合规从文档变成系统。18 个安全与合规项目把控制项写成规则引擎，证据由引擎在运行时生成，审计时可以直接回放。</p>
+        <dl class="pfacts">
+          <div><dt>真实场景</dt><dd>企业合规与安全运营</dd></div>
+          <div><dt>核心约束</dt><dd>控制项可测、证据可追</dd></div>
+          <div><dt>关键机制</dt><dd>规则引擎 + 自动重测</dd></div>
+          <div><dt>交付形态</dt><dd>18 个可运行项目</dd></div>
+        </dl>
+        <div class="pfoot">
+          <div class="pmeta"><span>2026</span><span>FastAPI · SQLite · Sigma · ATT&amp;CK</span></div>
+          <button class="case-link" type="button" data-toast="项目细节可在面试中完整展开">查看实现要点 <span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="pvisual pv-3">
+        <div class="vhead"><span>03 / 留痕</span><span>Continuous Compliance</span></div>
+        <div class="vstage">
+          <div class="vart">
+            <svg viewBox="0 0 620 400" role="img" aria-label="合规模块阵列示意图：14 个控制域模块，其中三个高亮，下方标注接口总数">
+              <rect width="620" height="400" fill="#0b0d10"/>
+
+              <g font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#4a4e57">
+                <text x="18" y="92">01</text><text x="103" y="92">02</text><text x="188" y="92">03</text><text x="273" y="92">04</text>
+                <text x="358" y="92">05</text><text x="443" y="92">06</text><text x="528" y="92">07</text>
+                <text x="18" y="186">08</text><text x="103" y="186">09</text><text x="188" y="186">10</text><text x="273" y="186">11</text>
+                <text x="358" y="186">12</text><text x="443" y="186">13</text><text x="528" y="186">14</text>
+              </g>
+
+              <g fill="none" stroke="rgba(242,241,236,.16)" stroke-width="1.2">
+                <rect x="18" y="102" width="74" height="66" rx="9"/><rect x="103" y="102" width="74" height="66" rx="9"/>
+                <rect x="188" y="102" width="74" height="66" rx="9"/><rect x="273" y="102" width="74" height="66" rx="9"/>
+                <rect x="358" y="102" width="74" height="66" rx="9"/><rect x="443" y="102" width="74" height="66" rx="9"/>
+                <rect x="528" y="102" width="74" height="66" rx="9"/>
+                <rect x="18" y="196" width="74" height="66" rx="9"/><rect x="103" y="196" width="74" height="66" rx="9"/>
+                <rect x="188" y="196" width="74" height="66" rx="9"/>
+                <rect x="358" y="196" width="74" height="66" rx="9"/><rect x="528" y="196" width="74" height="66" rx="9"/>
+              </g>
+
+              <g fill="none" stroke="#18a89b" stroke-width="1.6" fill-opacity="1">
+                <rect x="18" y="102" width="74" height="66" rx="9" fill="rgba(24,168,155,.1)"/>
+                <rect x="273" y="196" width="74" height="66" rx="9" fill="rgba(24,168,155,.1)"/>
+                <rect x="443" y="196" width="74" height="66" rx="9" fill="rgba(24,168,155,.1)"/>
+              </g>
+
+              <g fill="rgba(242,241,236,.2)">
+                <rect x="30" y="120" width="30" height="5" rx="2.5"/><rect x="115" y="120" width="22" height="5" rx="2.5"/><rect x="200" y="120" width="34" height="5" rx="2.5"/>
+                <rect x="285" y="120" width="26" height="5" rx="2.5"/><rect x="370" y="120" width="30" height="5" rx="2.5"/><rect x="455" y="120" width="24" height="5" rx="2.5"/><rect x="540" y="120" width="30" height="5" rx="2.5"/>
+                <rect x="30" y="214" width="28" height="5" rx="2.5"/><rect x="115" y="214" width="32" height="5" rx="2.5"/><rect x="200" y="214" width="22" height="5" rx="2.5"/>
+                <rect x="370" y="214" width="34" height="5" rx="2.5"/><rect x="540" y="214" width="26" height="5" rx="2.5"/>
+                <rect x="30" y="238" width="42" height="4" rx="2"/><rect x="115" y="238" width="36" height="4" rx="2"/><rect x="200" y="238" width="40" height="4" rx="2"/>
+                <rect x="285" y="238" width="38" height="4" rx="2"/><rect x="370" y="238" width="34" height="4" rx="2"/><rect x="455" y="238" width="42" height="4" rx="2"/><rect x="540" y="238" width="30" height="4" rx="2"/>
+              </g>
+              <g fill="#18a89b" opacity=".9">
+                <rect x="30" y="120" width="30" height="5" rx="2.5"/>
+                <rect x="285" y="214" width="38" height="5" rx="2.5"/>
+                <rect x="455" y="214" width="34" height="5" rx="2.5"/>
+              </g>
+              <g fill="rgba(24,168,155,.42)">
+                <rect x="30" y="238" width="42" height="4" rx="2"/>
+                <rect x="285" y="238" width="38" height="4" rx="2"/>
+                <rect x="455" y="238" width="34" height="4" rx="2"/>
+              </g>
+
+              <rect x="18" y="300" width="584" height="1" fill="rgba(242,241,236,.12)"/>
+              <g fill="rgba(242,241,236,.22)">
+                <rect x="18" y="316" width="24" height="5" rx="2.5"/><rect x="62" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="106" y="316" width="24" height="5" rx="2.5"/><rect x="150" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="194" y="316" width="24" height="5" rx="2.5"/><rect x="238" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="282" y="316" width="24" height="5" rx="2.5"/><rect x="326" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="370" y="316" width="24" height="5" rx="2.5"/><rect x="414" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="458" y="316" width="24" height="5" rx="2.5"/><rect x="502" y="316" width="24" height="5" rx="2.5"/>
+                <rect x="546" y="316" width="24" height="5" rx="2.5"/><rect x="590" y="316" width="12" height="5" rx="2.5"/>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1.1">
+                <text x="18" y="348" fill="#7fd8cf">200+ API ENDPOINTS</text>
+                <text x="602" y="348" text-anchor="end" fill="#4a4e57">PORTS 5010—5041</text>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">
+                <text x="18" y="42">18 CONTROL DOMAINS</text>
+                <text x="602" y="42" text-anchor="end">ISO 27001 · SOC 2 · PCI · PIPL</text>
+              </g>
+            </svg>
+          </div>
+          <div class="vfeat">
+            <span>核心判断</span>
+            <strong>合规不是文档，是系统。</strong>
+            <p>控制项写成可执行规则，证据由引擎生成而不是手写。审计时把流程重放一遍，就能看到控制是否真的生效。</p>
+            <small>累计 200+ endpoints · 800+ 测试</small>
+          </div>
+        </div>
+        <div class="vfoot"><span>18 个项目 · 200+ API endpoints</span><span>Sigma 规则 + ATT&amp;CK 映射</span></div>
+      </div>
+    </article>
+
+    <!-- 04 授信 -->
+    <article class="prow flip" id="project-4" data-reveal style="--d:60ms">
+      <div class="pinfo">
+        <p class="pindex">04 / 安全与合规工程 · 身份方向</p>
+        <h2>授信</h2>
+        <p class="ptype">一个身份管理 SRE 实验室。把 OAuth2 / OIDC 的关键条款逐条实现并测试——授权码、PKCE、token 轮换和吊销都要能跑。</p>
+        <dl class="pfacts">
+          <div><dt>真实场景</dt><dd>身份与访问管理</dd></div>
+          <div><dt>核心约束</dt><dd>token 生命周期可控</dd></div>
+          <div><dt>关键机制</dt><dd>PKCE · RS256 · 轮换</dd></div>
+          <div><dt>交付形态</dt><dd>FastAPI · 73 endpoints</dd></div>
+        </dl>
+        <div class="pfoot">
+          <div class="pmeta"><span>2026</span><span>FastAPI · PyJWT · cryptography</span></div>
+          <button class="case-link" type="button" data-toast="项目细节可在面试中完整展开">查看实现要点 <span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="pvisual pv-4">
+        <div class="vhead"><span>04 / 授信</span><span>Identity &amp; Token</span></div>
+        <div class="vstage flip">
+          <div class="vfeat">
+            <span>核心判断</span>
+            <strong>身份是安全的地基。</strong>
+            <p>从授权码交换到刷新轮换与吊销，把 RFC 条款逐条落成实现，并用测试固定住行为，而不是停留在"配好了"。</p>
+            <small>202 tests + 34 端到端冒烟</small>
+          </div>
+          <div class="vart">
+            <svg viewBox="0 0 620 400" role="img" aria-label="OAuth 授权流程示意：客户端与授权服务器交换授权码，服务器签发令牌给资源服务，底部列出已实现的协议能力">
+              <defs>
+                <marker id="ar-c" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                  <path d="M0 0 L7 3.5 L0 7 z" fill="#e2685f"/>
+                </marker>
+                <marker id="ar-d" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                  <path d="M0 0 L7 3.5 L0 7 z" fill="rgba(242,241,236,.5)"/>
+                </marker>
+              </defs>
+              <rect width="620" height="400" fill="#0b0d10"/>
+
+              <rect x="34" y="146" width="126" height="106" rx="11" fill="#0f1216" stroke="rgba(242,241,236,.2)" stroke-width="1.2"/>
+              <text x="97" y="178" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">CLIENT</text>
+              <rect x="62" y="192" width="70" height="26" rx="6" fill="rgba(226,104,95,.12)" stroke="rgba(226,104,95,.45)" stroke-width="1.2"/>
+              <text x="97" y="209" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1" fill="#e2685f">VERIFIER</text>
+              <text x="97" y="238" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing=".9" fill="#4a4e57">S256 CHALLENGE</text>
+
+              <rect x="232" y="100" width="164" height="198" rx="12" fill="#12100f" stroke="rgba(226,104,95,.34)" stroke-width="1.4"/>
+              <text x="314" y="130" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#e2685f">AUTHORIZATION SERVER</text>
+              <g>
+                <rect x="252" y="146" width="124" height="26" rx="6" fill="rgba(242,241,236,.05)" stroke="rgba(242,241,236,.16)" stroke-width="1"/>
+                <text x="314" y="163" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#b7bac2">/authorize</text>
+                <rect x="252" y="182" width="124" height="26" rx="6" fill="rgba(242,241,236,.05)" stroke="rgba(242,241,236,.16)" stroke-width="1"/>
+                <text x="314" y="199" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#b7bac2">/token</text>
+                <rect x="252" y="218" width="124" height="26" rx="6" fill="rgba(242,241,236,.05)" stroke="rgba(242,241,236,.16)" stroke-width="1"/>
+                <text x="314" y="235" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#b7bac2">/revoke</text>
+                <rect x="252" y="254" width="124" height="26" rx="6" fill="rgba(226,104,95,.12)" stroke="rgba(226,104,95,.4)" stroke-width="1"/>
+                <text x="314" y="271" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7.5" letter-spacing="1" fill="#e2685f">ROTATION</text>
+              </g>
+
+              <rect x="468" y="146" width="118" height="106" rx="11" fill="#0f1216" stroke="rgba(242,241,236,.2)" stroke-width="1.2"/>
+              <text x="527" y="178" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">RESOURCE</text>
+              <rect x="488" y="192" width="78" height="26" rx="6" fill="rgba(226,104,95,.12)" stroke="rgba(226,104,95,.45)" stroke-width="1.2"/>
+              <text x="527" y="209" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1" fill="#e2685f">RS256 JWT</text>
+              <text x="527" y="238" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing=".9" fill="#4a4e57">BEARER SCOPE</text>
+
+              <path d="M160 168 L232 152" fill="none" stroke="#e2685f" stroke-width="1.4" marker-end="url(#ar-c)"/>
+              <text x="196" y="142" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#e2685f">AUTHZ</text>
+              <path d="M232 196 L160 212" fill="none" stroke="rgba(242,241,236,.5)" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#ar-d)"/>
+              <text x="196" y="228" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#787d88">CODE</text>
+              <path d="M396 158 L468 178" fill="none" stroke="#e2685f" stroke-width="1.4" marker-end="url(#ar-c)"/>
+              <text x="432" y="140" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#e2685f">ACCESS</text>
+              <path d="M468 216 L396 240" fill="none" stroke="rgba(226,104,95,.5)" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#ar-d)"/>
+              <text x="432" y="256" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing="1" fill="#787d88">REFRESH</text>
+
+              <g font-family="ui-monospace, Menlo, monospace" font-size="7" letter-spacing=".9">
+                <rect x="34" y="300" width="170" height="26" rx="13" fill="rgba(24,168,155,.1)" stroke="rgba(24,168,155,.32)" stroke-width="1"/>
+                <circle cx="52" cy="313" r="3.5" fill="#18a89b"/>
+                <text x="64" y="316" fill="#7fd8cf">25 TESTS PASSED</text>
+                <rect x="216" y="300" width="170" height="26" rx="13" fill="rgba(242,241,236,.05)" stroke="rgba(242,241,236,.14)" stroke-width="1"/>
+                <circle cx="234" cy="313" r="3.5" fill="#787d88"/>
+                <text x="246" y="316" fill="#b7bac2">REFRESH ROTATION</text>
+                <rect x="398" y="300" width="188" height="26" rx="13" fill="rgba(242,241,236,.05)" stroke="rgba(242,241,236,.14)" stroke-width="1"/>
+                <circle cx="416" cy="313" r="3.5" fill="#787d88"/>
+                <text x="428" y="316" fill="#b7bac2">REVOKE · RFC 7009</text>
+              </g>
+              <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.3" fill="#4a4e57">
+                <text x="34" y="42">TOKEN LIFECYCLE</text>
+                <text x="586" y="380" text-anchor="end">NO IMPLICIT GRANT</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="vfoot"><span>FastAPI · PyJWT · cryptography · SQLite</span><span>OAuth2 / OIDC · SAML · WebAuthn</span></div>
+      </div>
+    </article>
+
+    <!-- bridge -->
+    <a class="bridge" href="#capability" data-reveal style="--d:80ms">
+      <div class="bridge-copy">
+        <span>接下来 / 01—04</span>
+        <strong>四个项目都指向同一件事：<br/>让结论能被追溯。</strong>
+        <p>从检索护栏到合规证据链，做法是同一种——先定义"什么算对"，再让系统强制它成立。</p>
+      </div>
+      <div class="bridge-art">
+        <svg viewBox="0 0 640 180" role="img" aria-label="递增柱状图与趋势线插图，表达从约束到验证的逐级推进">
+          <defs>
+            <linearGradient id="bg-b" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#f0a92b" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#3d63f0" stop-opacity=".5"/>
+            </linearGradient>
+          </defs>
+          <rect width="640" height="180" fill="#0a0c0f"/>
+          <g stroke="rgba(242,241,236,.07)" stroke-width="1">
+            <path d="M28 46 H612"/><path d="M28 80 H612"/><path d="M28 114 H612"/><path d="M28 148 H612"/>
+          </g>
+          <g fill="rgba(242,241,236,.09)">
+            <rect x="44" y="124" width="62" height="26" rx="7"/>
+            <rect x="126" y="112" width="62" height="38" rx="7"/>
+            <rect x="208" y="100" width="62" height="50" rx="7"/>
+            <rect x="290" y="88" width="62" height="62" rx="7"/>
+            <rect x="372" y="74" width="62" height="76" rx="7"/>
+            <rect x="454" y="60" width="62" height="90" rx="7"/>
+            <rect x="536" y="46" width="62" height="104" rx="7"/>
+          </g>
+          <g fill="url(#bg-b)">
+            <rect x="44" y="124" width="62" height="2.5" rx="1.25"/>
+            <rect x="126" y="112" width="62" height="2.5" rx="1.25"/>
+            <rect x="208" y="100" width="62" height="2.5" rx="1.25"/>
+            <rect x="290" y="88" width="62" height="2.5" rx="1.25"/>
+            <rect x="372" y="74" width="62" height="2.5" rx="1.25"/>
+            <rect x="454" y="60" width="62" height="2.5" rx="1.25"/>
+            <rect x="536" y="46" width="62" height="2.5" rx="1.25"/>
+          </g>
+          <path d="M75 124 L157 112 L239 100 L321 88 L403 74 L485 60 L567 46"
+                fill="none" stroke="#f0a92b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#0a0c0f" stroke="#f0a92b" stroke-width="1.6">
+            <circle cx="75" cy="124" r="3.6"/><circle cx="157" cy="112" r="3.6"/><circle cx="239" cy="100" r="3.6"/>
+            <circle cx="321" cy="88" r="3.6"/><circle cx="403" cy="74" r="3.6"/><circle cx="485" cy="60" r="3.6"/><circle cx="567" cy="46" r="3.6"/>
+          </g>
+          <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2" fill="#4a4e57">
+            <text x="28" y="24">CONSTRAINT → EVIDENCE → SYSTEM</text>
+            <text x="28" y="170">7 STAGES / TRACEABLE</text>
+          </g>
+        </svg>
+        <span>PROGRESS / CONSTRAINT TO VERIFICATION</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ================= CAPABILITY + EXPERIENCE ================= -->
+  <section class="shell band" id="all-projects" aria-labelledby="all-title">
+    <div class="section-head" data-reveal>
+      <span class="section-title" id="all-title">全部项目</span>
+      <p>除精选的四件外，下面是全部公开仓库。按方向分组，每一项都可直接打开源码与文档。</p>
+    </div>
+    <div class="pstat" data-reveal>
+      <div><span>公开仓库</span><strong>29 个 · 全部原创</strong></div>
+      <div><span>接口</span><strong>200+ API endpoints</strong></div>
+      <div><span>测试</span><strong>800+ 自动化测试</strong></div>
+      <div><span>方向</span><strong>GRC · SRE · AI · 工具</strong></div>
+    </div>
+
+      <div class="pgroup" data-reveal>
+        <div class="pgroup-head">
+          <b>A</b><span>安全与合规 · Security / GRC</span><em>GRC CONTROL DOMAINS · 18</em>
+        </div>
+        <div class="pgrid">
+          <a class="pcard" href="https://github.com/awuawuheiyohei/01-incident-response-playbooks" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">01</span><span class="pcard-repo">ir-playbooks</span></div>
+            <h3>IR Playbooks</h3>
+            <p>6 类事故场景 · NIST SP 800-61 r2 响应流程 · 沟通模板编排</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/02-siem-edr-detection" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">02</span><span class="pcard-repo">siem-edr-detection</span></div>
+            <h3>SIEM / EDR 检测工程</h3>
+            <p>10 条 Sigma 规则 · MITRE ATT&CK 映射 · 本地 SIEM 模拟</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/19-kql-detections" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">03</span><span class="pcard-repo">02-kql-detections</span></div>
+            <h3>KQL 威胁检测库</h3>
+            <p>Sentinel KQL 检测规则 6 条 · 误报分析与调优思路</p>
+            <div class="pcard-foot"><span>KQL</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/03-iso27001-gap-assessment" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">04</span><span class="pcard-repo">03-iso27001-gap-assessment</span></div>
+            <h3>ISO 27001 Gap 评估</h3>
+            <p>18 个控制项 × 4 域评估框架 · 证据追踪 · 自动重测</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/04-soc2-continuous-compliance" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">05</span><span class="pcard-repo">04-soc2-continuous-compliance</span></div>
+            <h3>SOC 2 持续合规</h3>
+            <p>Trust Service Criteria 控制测试 · 例外管理 · 证据留存</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/05-pci-dss-scope-reduction" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">06</span><span class="pcard-repo">05-pci-dss-scope-reduction</span></div>
+            <h3>PCI DSS 范围缩减</h3>
+            <p>CDE 边界识别 · 网络分段策略 · SAQ 资格判定</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/06-enterprise-risk-register" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">07</span><span class="pcard-repo">06-enterprise-risk-register</span></div>
+            <h3>企业风险量化</h3>
+            <p>Open FAIR 量化 · NIST 800-30 · Beta-PERT Monte Carlo</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/07-tprm-vendor-assessment" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">08</span><span class="pcard-repo">07-tprm-vendor-assessment</span></div>
+            <h3>TPRM 供应商风险</h3>
+            <p>Tier 1/2/3 分级引擎 · CAIQ v4 问卷 · DPA 条款扫描</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/08-b2b-rfp-kb" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">09</span><span class="pcard-repo">08-b2b-rfp-kb</span></div>
+            <h3>B2B RFP 知识库</h3>
+            <p>100+ 安全条目 · 纯 Python BM25 + TF-IDF · 引用溯源</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/09-pipl-cross-border" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">10</span><span class="pcard-repo">09-pipl-cross-border</span></div>
+            <h3>PIPL 跨境审计</h3>
+            <p>4 路径决策引擎 · DPIA 5 维评分 · SHA-256 证据防篡改</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/10-enterprise-dlp" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">11</span><span class="pcard-repo">10-enterprise-dlp</span></div>
+            <h3>企业 DLP 与分级</h3>
+            <p>4 级数据分类 · 9 个敏感信息检测器 · 62 项测试</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/11-vuln-management-sla" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">12</span><span class="pcard-repo">11-vuln-management-sla</span></div>
+            <h3>漏洞 SLA 管理</h3>
+            <p>Trivy / Nessus 解析 · CVSS + EPSS + KEV 复合评分</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/15-vulnerability-management-platform" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">13</span><span class="pcard-repo">15-vulnerability-management-platform</span></div>
+            <h3>漏洞管理平台</h3>
+            <p>评分 5 分量可审计展开 · 同一 CVE 公网机差 24.5 分</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/12-cloud-iam-pam" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">14</span><span class="pcard-repo">12-cloud-iam-pam</span></div>
+            <h3>云 IAM / PAM 治理</h3>
+            <p>4 大风险检测 · JIT Break-Glass 双人审批 · 季度对账</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/13-multicloud-cspm" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">15</span><span class="pcard-repo">13-multicloud-cspm</span></div>
+            <h3>多云 CSPM</h3>
+            <p>CIS 规则引擎（AWS / Azure / GCP）· 风险加权评分</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/16-soar-automation" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">16</span><span class="pcard-repo">16-soar-automation</span></div>
+            <h3>SOAR 响应平台</h3>
+            <p>告警摄取 → Playbook → 人工审批门 → 幂等执行 → 补偿回滚</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/17-dsar-management" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">17</span><span class="pcard-repo">17-dsar-management</span></div>
+            <h3>DSAR 请求管理</h3>
+            <p>GDPR Art.12–22 全生命周期 · 身份核验前置闸门 · 多法域时限</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/14-bcp-dr-tabletop" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">18</span><span class="pcard-repo">14-bcp-dr-tabletop</span></div>
+            <h3>BCP / DR 桌面演练</h3>
+            <p>BIA 量化 · RTO/RPO 分级 · 4 阶段勒索剧本推演</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="pgroup" data-reveal>
+        <div class="pgroup-head">
+          <b>B</b><span>DevOps / SRE / 身份管理</span><em>PLATFORM & IDENTITY · 05</em>
+        </div>
+        <div class="pgrid">
+          <a class="pcard" href="https://github.com/awuawuheiyohei/34-idm-sre-lab" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">19</span><span class="pcard-repo">idm-sre-lab</span></div>
+            <h3>IdM SRE 实验室</h3>
+            <p>OAuth2/OIDC + SAML + WebAuthn · 73 endpoints · 202 tests</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/43-vmodel-pipeline" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">20</span><span class="pcard-repo">vmodel-pipeline</span></div>
+            <h3>V 模型 + Tekton</h3>
+            <p>本地 k3d + Argo CD · V 模型双向追溯 · 5 stage 全绿</p>
+            <div class="pcard-foot"><span>K8s</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/vmodel-demo-service" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">21</span><span class="pcard-repo">vmodel-demo-service</span></div>
+            <h3>V 模型示例服务</h3>
+            <p>被 V 模型流水线持续交付的参考微服务</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/36-intune-autopilot-cn-fixer" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">22</span><span class="pcard-repo">intune-autopilot-cn-fixer</span></div>
+            <h3>Intune 中国网络修复</h3>
+            <p>3 层修复（PAC + Zscaler + SD-WAN）· 指数退避重试</p>
+            <div class="pcard-foot"><span>PowerShell</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/37-intune-policy-automation" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">23</span><span class="pcard-repo">intune-policy-automation</span></div>
+            <h3>Intune 策略自动化</h3>
+            <p>PowerShell + Azure DevOps Pipeline · 蓝绿部署 + 审计</p>
+            <div class="pcard-foot"><span>PowerShell</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="pgroup" data-reveal>
+        <div class="pgroup-head">
+          <b>C</b><span>AI / LLM 应用</span><em>APPLIED AI · 04</em>
+        </div>
+        <div class="pgrid">
+          <a class="pcard" href="https://github.com/awuawuheiyohei/mother-care" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">24</span><span class="pcard-repo">mother-care</span></div>
+            <h3>母婴 AI 助手</h3>
+            <p>RAG + 医疗答案护栏 · 高危关键词短路 · 三道关卡入库</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/29-ai_knowledge_cockpit" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">25</span><span class="pcard-repo">ai-knowledge-cockpit</span></div>
+            <h3>检索式知识库</h3>
+            <p>KB 与源 PDF 1:1 · 检索路径不放 LLM · 494 题题库</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/18-gpt-sentiment-finetune" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">26</span><span class="pcard-repo">18-sentiment-analysis-platform</span></div>
+            <h3>中文情感分析平台</h3>
+            <p>可解释基线 macro-F1 0.895 vs LoRA 0.898（实测负结果）</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/38-invoice-intelligence-mvp" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">27</span><span class="pcard-repo">invoice-intelligence-mvp</span></div>
+            <h3>发票智能解析</h3>
+            <p>OCR 兜底 · 字段级置信度评分 · Excel / CSV / JSON 导出</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="pgroup" data-reveal>
+        <div class="pgroup-head">
+          <b>D</b><span>工具与记录</span><em>TOOLS & NOTES · 02</em>
+        </div>
+        <div class="pgrid">
+          <a class="pcard" href="https://github.com/awuawuheiyohei/21-CCIE-HCIE" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">28</span><span class="pcard-repo">CCIE-HCIE_Jarvis</span></div>
+            <h3>CCIE × HCIE 知识库</h3>
+            <p>CCIE / HCIE 双厂商认证备考知识库与实验记录</p>
+            <div class="pcard-foot"><span>Shell</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="pcard" href="https://github.com/awuawuheiyohei/23-For_Codex" target="_blank" rel="noopener noreferrer">
+            <div class="pcard-top"><span class="pcard-idx">29</span><span class="pcard-repo">Jarvis-design-report</span></div>
+            <h3>周报设计工具</h3>
+            <p>生活 / 工作分离的周报 CLI + Web UI + AI 复盘</p>
+            <div class="pcard-foot"><span>Python</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+      </div>
+
+  </section>
+
+  <section class="band-alt" id="capability" aria-labelledby="cap-title">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <span class="section-title" id="cap-title">能力与经验</span>
+        <p>四年时间里我做过三类事：把生产环境跑稳、把系统建起来、把证据留下来。这三件事的共同点是都要能被检验。</p>
+      </div>
+
+      <div class="summary" data-reveal>
+        <div><span>在做</span><strong>安全合规 / 身份管理 / DevSecOps</strong></div>
+        <div><span>方法</span><strong>先定"什么算对"，再让系统强制它成立</strong></div>
+        <div><span>协作</span><strong>独立推进 / 跨 BU 推动 / 全英文对接</strong></div>
+      </div>
+
+      <div class="caps">
+        <article class="cap" data-reveal>
+          <div class="cap-head"><b>01</b><span>可信 AI</span></div>
+          <h3>让流水线自己证明自己</h3>
+          <p>CI/CD 配置也进版本库、被 review、被测试。OIDC 联邦身份换取凭据，仓库里不存明文密钥；发布走 10% → 50% → 100% 灰度，每一步都能一键回退。</p>
+          <ul class="cap-methods"><li>GitHub Actions + OIDC</li><li>灰度发布</li><li>双通道回滚</li><li>k3s / Tekton / Argo CD</li></ul>
+          <div class="cap-out"><span>结果</span><strong>部署耗时 -90% · 12 个月零错误</strong></div>
+        </article>
+        <article class="cap" data-reveal style="--d:70ms">
+          <div class="cap-head"><b>02</b><span>合规工程</span></div>
+          <h3>让审计可以回放</h3>
+          <p>控制项不写成文档，写成规则引擎。证据由系统在运行时生成，审计时把流程重放一遍，就能看到控制是否真的在生效。</p>
+          <ul class="cap-methods"><li>ISO 27001</li><li>SOC 2 Type II</li><li>PCI DSS 范围界定</li><li>PIPL 跨境评估</li></ul>
+          <div class="cap-out"><span>体现</span><strong>留痕 · ISO 审计落地</strong></div>
+        </article>
+        <article class="cap" data-reveal style="--d:90ms">
+          <div class="cap-head"><b>03</b><span>身份与安全</span></div>
+          <h3>把身份管到每一个人</h3>
+          <p>全公司用户的生命周期、RBAC、特权账户管理（PIM）与季度 Access Review，离职当天权限回收。协议侧则把授权码、PKCE、刷新轮换和吊销逐条实现并测试。</p>
+          <ul class="cap-methods"><li>Entra ID / AD</li><li>PIM 特权账户</li><li>Zscaler 零信任</li><li>OAuth2 / OIDC / SAML</li></ul>
+          <div class="cap-out"><span>体现</span><strong>MFA 全员推广 · 授信实验室</strong></div>
+        </article>
+        <article class="cap" data-reveal style="--d:140ms">
+          <div class="cap-head"><b>04</b><span>生产运维</span></div>
+          <h3>让现场能落地</h3>
+          <p>企业 IT 的现实是：方案要能在客户的网络和权限边界里跑起来。写脚本、排障、跨部门推动，把事情推到真的完成。</p>
+          <ul class="cap-methods"><li>Intune / MDM 部署</li><li>SharePoint 迁移</li><li>ITSM 流程</li><li>跨部门协作</li></ul>
+          <div class="cap-out"><span>体现</span><strong>APAC IT 负责人 · 750 工单 / 年</strong></div>
+        </article>
+      </div>
+
+      <!-- experience -->
+      <div class="tl" id="experience">
+        <div class="tl-head" data-reveal>
+          <span class="section-title">工作经历</span>
+          <p style="margin:0;color:var(--muted);font-size:12.5px;text-align:right;">2023 年至今 · 企业 IT、安全合规与技术支持</p>
+        </div>
+
+        <article class="tl-row" data-reveal>
+          <div class="tl-when">
+            <span class="fact-num">2024.02 — 至今</span>
+            <h3 class="tl-role">IT Analyst（APAC IT）</h3>
+            <p class="tl-org">克诺尔车辆设备（苏州）<br/>Global IT · APAC 多地区</p>
+          </div>
+          <div class="tl-main">
+            <ul class="tl-points">
+              <li><b>安全合规治理</b>：连续两轮主导 ISO 27001:2022 IT 审计全流程（控制映射 / 证据收集 / 内审 / 外审配合）；推动 MFA 全员推广与终端合规。</li>
+              <li><b>DevSecOps</b>：主导企业 CI/CD 流水线（Python + GitHub Actions + OIDC 联邦鉴权，仓库零明文密钥），灰度发布 10% → 50% → 100%，部署耗时 -90%、12 个月零错误，方案被集团其他 BU 复用。</li>
+              <li><b>云安全与零信任</b>：AWS / Azure / GCP 多云资产合规基线（CIS Benchmark 规则引擎）；Zscaler ZIA/ZPA 部署覆盖受管用户 × 4 地区；推动 Entra ID 条件访问策略。</li>
+              <li><b>身份与访问管理</b>：Entra ID + AD 全公司用户生命周期、RBAC、特权账户管理（PIM）、季度 Access Review，离职当天权限回收。</li>
+              <li><b>事件响应</b>：APAC 时区 24/7 on-call，主导 2025-09 证书过期应急（SLO 4 小时按时恢复），根因定位到 Azure AD 迁移后 CRL endpoint 未加防火墙白名单。</li>
+              <li><b>业绩</b>：2024—2026 零 P0 安全事件 · 两轮 ISO 27001 审计通过 · 主导 SharePoint Online 迁移。</li>
+            </ul>
+            <div class="tl-stack"><span>Entra ID</span><span>Zscaler</span><span>AWS / Azure / GCP</span><span>ServiceNow / ITILv5</span><span>GitHub Actions + OIDC</span><span>SharePoint Online</span></div>
+          </div>
+        </article>
+
+        <article class="tl-row" data-reveal style="--d:60ms">
+          <div class="tl-when">
+            <span class="fact-num">2023.02 — 2024.02</span>
+            <h3 class="tl-role">技术支持工程师</h3>
+            <p class="tl-org">上海微创软件<br/>Intune Premium Support</p>
+          </div>
+          <div class="tl-main">
+            <ul class="tl-points">
+              <li>一年处理约 750 个 case，覆盖 Intune 企业 MDM 部署排错、Azure / Office 365 / Dynamics 365 三朵云支持（含 Azure OpenAI）。</li>
+              <li>创建微软 SME 主题「Intune 安全策略最佳实践」，客户满意度调查 <b>5 / 5</b>。</li>
+              <li>全英文邮件与电话对接 APAC 多地区客户；用 Python / PowerShell 脚本做安全日志分析与策略部署。</li>
+            </ul>
+            <div class="tl-stack"><span>Intune / MDM</span><span>Azure</span><span>Entra ID</span><span>Microsoft 365</span><span>Dynamics 365</span><span>Python</span></div>
+          </div>
+        </article>
+
+        <div class="dual" data-reveal style="--d:90ms">
+          <section class="sub-card">
+            <span>教育背景</span>
+            <div class="edu-list">
+              <div class="edu">
+                <div class="edu-top"><strong>江苏理工学院</strong><time>2018.09 — 2022.06</time></div>
+                <p>计算机科学与技术 · 本科 · 前 5% · 两学期二三等奖学金 · 大一至大三班长</p>
+              </div>
+              <div class="edu">
+                <div class="edu-top"><strong>Troy University（美国）</strong><time>2019.08 — 2020.12</time></div>
+                <p>计算机科学与技术 · 本科 · GPA 3.4 / 4.0 · 留学生奖学金</p>
+              </div>
+              <div class="edu">
+                <div class="edu-top"><strong>南京理工大学</strong><time>备考中</time></div>
+                <p>非全日制 · 人工智能方向</p>
+              </div>
+            </div>
+          </section>
+          <section class="sub-card">
+            <span>证书与语言</span>
+            <ul class="badge-row">
+              <li class="badge"><i aria-hidden="true"></i>CISSP · 2026-09</li>
+              <li class="badge"><i aria-hidden="true"></i>PMP</li>
+              <li class="badge"><i aria-hidden="true"></i>ITIL v5 Foundation</li>
+              <li class="badge muted"><i aria-hidden="true"></i>Microsoft Azure</li>
+              <li class="badge muted"><i aria-hidden="true"></i>两轮 ISO 27001 审计</li>
+              <li class="badge muted"><i aria-hidden="true"></i>雅思 6.0</li>
+              <li class="badge muted"><i aria-hidden="true"></i>CET-6</li>
+              <li class="badge muted"><i aria-hidden="true"></i>APAC 英文对接</li>
+            </ul>
+            <p class="note">证书与工作内容以实际经历为准。项目数据均来自真实运行结果，案例中省略了与结论无关的实现细节。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="shell band" id="about" aria-labelledby="about-title">
+    <div class="about-grid">
+      <article class="about-copy" id="about-title" data-reveal>
+        <div class="card-label"><span>关于我</span><span>JIANG WENRUI</span></div>
+        <p class="about-large">我更在意结论能不能被追溯，而不是它听起来有多完整。</p>
+        <div class="about-story">
+          <p><span>怎么开始一件事</span>先确认真实约束——生产环境的 IT 工单、医疗场景的答案边界、审计方要的证据链——先定"什么算对"，再选技术。</p>
+          <p><span>怎么推进一件事</span>把每一步落成可运行、可测试、可复现的东西：本地跑通的流水线、带测试的 token 生命周期、能一键回放的合规规则。</p>
+        </div>
+        <dl class="about-facts">
+          <div><dt>关注方向</dt><dd>AI 应用 / 身份安全</dd></div>
+          <div><dt>所在城市</dt><dd>南京 · 可远程</dd></div>
+          <div><dt>工作语言</dt><dd>中文 / 英文</dd></div>
+        </dl>
+        <p class="about-small">目前在职，正在备考人工智能方向的非全日制研究生。业余时间维护 31 个开源项目——它们既是学习记录，也是我判断一个方案到底行不行的方式。</p>
+      </article>
+
+      <article class="about-art" data-reveal style="--d:90ms">
+        <div class="card-label"><span>Process / 04</span><span>从约束到验证</span></div>
+        <div class="about-ill">
+          <svg viewBox="0 0 640 242" role="img" aria-label="四步验证闭环示意：定位、取证、构建、验证四个阶段首尾相连">
+            <rect width="640" height="242" fill="#0a0c0f"/>
+            <circle cx="320" cy="121" r="78" fill="none" stroke="rgba(242,241,236,.1)" stroke-width="1" stroke-dasharray="3 6"/>
+            <circle cx="320" cy="121" r="46" fill="none" stroke="rgba(242,241,236,.07)" stroke-width="1"/>
+            <g stroke="#f0a92b" stroke-width="1.6" fill="none" stroke-linecap="round">
+              <path d="M320 43 A78 78 0 0 1 398 121" stroke-opacity=".9"/>
+              <path d="M398 121 A78 78 0 0 1 320 199" stroke-opacity=".7"/>
+              <path d="M320 199 A78 78 0 0 1 242 121" stroke-opacity=".5"/>
+              <path d="M242 121 A78 78 0 0 1 320 43" stroke-opacity=".35"/>
+            </g>
+            <g fill="#f0a92b"><path d="M398 121 l-9 -5 v10 z"/><path d="M320 199 l-5 -9 h10 z"/><path d="M242 121 l9 -5 v10 z"/></g>
+            <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2">
+              <circle cx="320" cy="43" r="15" fill="#0a0c0f" stroke="#f0a92b" stroke-width="1.5"/>
+              <text x="320" y="47" text-anchor="middle" fill="#ffc55c">01</text>
+              <circle cx="398" cy="121" r="15" fill="#0a0c0f" stroke="#f0a92b" stroke-width="1.5"/>
+              <text x="398" y="125" text-anchor="middle" fill="#ffc55c">02</text>
+              <circle cx="320" cy="199" r="15" fill="#0a0c0f" stroke="#f0a92b" stroke-width="1.5"/>
+              <text x="320" y="203" text-anchor="middle" fill="#ffc55c">03</text>
+              <circle cx="242" cy="121" r="15" fill="#0a0c0f" stroke="#f0a92b" stroke-width="1.5"/>
+              <text x="242" y="125" text-anchor="middle" fill="#ffc55c">04</text>
+            </g>
+            <g font-family="ui-monospace, Menlo, monospace" text-anchor="middle">
+              <text x="320" y="118" font-size="8" letter-spacing="1.3" fill="#4a4e57">DEFINE</text>
+              <text x="320" y="133" font-size="9" letter-spacing=".6" fill="#f2f1ec">什么算对</text>
+            </g>
+            <g font-family="ui-monospace, Menlo, monospace" font-size="8" letter-spacing="1.2" fill="#4a4e57">
+              <text x="320" y="20" text-anchor="middle">SCOPE</text>
+              <text x="428" y="125">PROVE</text>
+              <text x="320" y="230" text-anchor="middle">BUILD</text>
+              <text x="212" y="125" text-anchor="end">CHECK</text>
+            </g>
+          </svg>
+          <span>DEFINE / PROVE / BUILD / CHECK</span>
+        </div>
+        <ol class="process">
+          <li><span>定</span><p>确认要解决的真实问题和约束</p></li>
+          <li><span>取</span><p>每条结论都要能指回原始证据</p></li>
+          <li><span>建</span><p>选能被验证的最小实现</p></li>
+          <li><span>验</span><p>用测试和真实场景回归</p></li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <footer class="shell footer" id="contact">
+    <section class="contact" aria-labelledby="contact-title" data-reveal>
+      <div>
+        <p class="micro">联系方式 / 2026</p>
+        <h2 id="contact-title">正在找 AI 应用工程、数据工程或 SRE 方向的岗位。</h2>
+        <p class="contact-ctx">如果你在做身份、云、合规或 LLM 应用相关的工程，我很想聊聊。邮箱和手机号点一下即可复制，简历中英文两个版本可下载。</p>
+      </div>
+      <button class="btn btn-amber" type="button" data-copy-btn="jarvisxfriday@icloud.com" data-copy-label="邮箱已复制">复制邮箱 <span class="arrow" aria-hidden="true">→</span></button>
+    </section>
+
+    <div class="foot-grid" data-reveal>
+      <section class="foot-card">
+        <p class="foot-title">快速导航</p>
+        <a href="#top">回到顶部 <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#projects">精选项目 <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#capability">能力与经验 <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#experience">工作经历 <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#about">关于我 <span class="arrow" aria-hidden="true">→</span></a>
+      </section>
+
+      <section class="foot-card">
+        <p class="foot-title">联系与资料</p>
+        <button class="copy-row" type="button" data-secret="jarvisxfriday@icloud.com" data-masked="j••••••••@icloud.com">
+          <span>邮箱</span><span class="val" data-val>点按复制</span>
+        </button>
+        <button class="copy-row" type="button" data-secret="18068357801" data-masked="180 •••• 7801">
+          <span>手机</span><span class="val" data-val>点按复制</span>
+        </button>
+        <a href="https://github.com/awuawuheiyohei" target="_blank" rel="noopener noreferrer">GitHub <span class="val">awuawuheiyohei</span></a>
+        <a href="https://www.linkedin.com/in/%E6%B1%B6%E7%9D%BF-%E8%92%8B-584ab7326" target="_blank" rel="noopener noreferrer">LinkedIn <span class="val">汶睿 · 蒋</span></a>
+        <a href="assets/jiang-wenrui-resume-cn.pdf" download>中文简历 <span class="arrow" aria-hidden="true">↓</span></a>
+        <a href="assets/jiang-wenrui-resume-en.pdf" download>English CV <span class="arrow" aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="foot-card">
+        <p class="foot-title">说明</p>
+        <p>站点内容取自个人简历底座，项目数据均来自真实运行结果，案例做了必要的结构简化。</p>
+        <p class="credit">全部插图为站内原创 SVG 图形，未使用外部素材。</p>
+        <span>© 2026 JIANG WENRUI</span>
+      </section>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- one-time scroll reveal ---------- */
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+    if (reduced || !("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    document.documentElement.classList.add("motion");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---------- reading progress ---------- */
+  (function () {
+    var bar = document.getElementById("bar");
+    if (!bar) return;
+    var tick = false;
+    function update() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + "%";
+      tick = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (tick) return;
+      tick = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  })();
+
+  /* ---------- toast ---------- */
+  var toastEl = document.querySelector(".toast");
+  var toastMsg = toastEl ? toastEl.querySelector("p") : null;
+  var toastTimer = null;
+  function toast(msg) {
+    if (!toastEl || !toastMsg) return;
+    toastMsg.textContent = msg;
+    toastEl.classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("on"); }, 2600);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:0;left:-9999px;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy") ? resolve() : reject(new Error("copy failed"));
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  /* ---------- masked contact: reveal on first click, then copy ---------- */
+  document.addEventListener("click", function (ev) {
+    var row = ev.target.closest ? ev.target.closest(".copy-row") : null;
+    if (!row) return;
+    var secret = row.getAttribute("data-secret");
+    if (!secret) return;
+    var valEl = row.querySelector("[data-val]");
+    var revealed = row.classList.contains("revealed");
+
+    copyText(secret).then(function () {
+      toast("已复制：" + secret);
+    }).catch(function () {
+      toast("复制失败，请手动选择：" + secret);
+    });
+
+    if (!revealed && valEl) {
+      valEl.textContent = secret;
+      row.classList.add("revealed");
+    }
+  });
+
+  /* ---------- inline copy button ---------- */
+  document.addEventListener("click", function (ev) {
+    var btn = ev.target.closest ? ev.target.closest("[data-copy-btn]") : null;
+    if (!btn) return;
+    var v = btn.getAttribute("data-copy-btn");
+    copyText(v).then(function () {
+      toast((btn.getAttribute("data-copy-label") || "已复制"));
+    }).catch(function () {
+      toast("复制失败，请手动记录：" + v);
+    });
+  });
+
+  /* ---------- toast triggers ---------- */
+  document.addEventListener("click", function (ev) {
+    var t = ev.target.closest ? ev.target.closest("[data-toast]") : null;
+    if (!t) return;
+    ev.preventDefault();
+    toast(t.getAttribute("data-toast") || "这项内容正在整理中。");
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# 蒋汶睿 · 个人网站
+# 站点为纯静态展示页，经由共享域名 space.mcode.cn 提供，无鉴权。
+# 按站点所有者要求：不参与任何搜索引擎索引，仅通过主动分享的链接访问。
+User-agent: *
+Disallow: /
+
+# 常见聚合与社交抓取端一并屏蔽
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: bytespider
+Disallow: /
