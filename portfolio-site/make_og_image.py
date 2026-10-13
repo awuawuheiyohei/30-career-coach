@@ -8,6 +8,12 @@
 右侧几何母题呼应首屏 identity 卡的 SVG 拓扑图（中心节点 + 模块环）。
 """
 from PIL import Image, ImageDraw, ImageFont
+import re, pathlib
+
+# 项目数直接读 index.html，避免手写数字与站点文案漂移（曾出现过 OG 图 31 / 站点 35）
+_here = pathlib.Path(__file__).parent
+_m = re.search(r'(\d+)\s*个开源项目', (_here / "index.html").read_text(encoding="utf-8"))
+NPROJ = _m.group(1) if _m else "?"
 
 W, H = 1200, 630
 VOID = (8, 9, 11)
@@ -68,7 +74,7 @@ d.rectangle([0, 0, 7, H], fill=AMBER)
 L = 76
 
 f_kick = F(MONO, 17)
-d.text((L, 84), "JIANG WENRUI / PERSONAL SITE", font=f_kick, fill=MUTED)
+d.text((L, 84), "JIANG WENRUI · JARVIS / PERSONAL SITE", font=f_kick, fill=MUTED)
 
 # 姓名 —— 琥珀下划线强调「严谨」
 f_name = F(CJK, 84, 0)
@@ -91,7 +97,7 @@ d.line([(L, 476), (L + 640, 476)], fill=(242, 241, 236, 26), width=1)
 # 数据条
 f_stat = F(CJK, 24, 0)
 x = L
-for txt, col in (("4 年企业级 IT 交付", INK2), ("31 个开源项目", INK2)):
+for txt, col in (("4 年企业级 IT 交付", INK2), (f"{NPROJ} 个开源项目", INK2)):
     d.text((x, 508), txt, font=f_stat, fill=col)
     x += d.textlength(txt, font=f_stat)
     if txt.startswith("4"):
