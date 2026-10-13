@@ -25,17 +25,28 @@ URL 不变，线上已验证：grep -c '在读' / '攻读' / '就读' 均为 0�
 | 2026-10-13 | 补 `robots.txt`（全站禁止索引）、`canonical` / `og:url` / `og:site_name` / `og:locale` / `twitter:card` | robots 200 + `Disallow: /` |
 | 2026-10-13 | 生成并挂上 `assets/og-image.png`（1200×630）+ `og:image:*` | 200 / 57,693B / image/png |
 | 2026-10-13 | 6 个项目建 public 仓库并推送；卡片 29 → 35，文案 31 → 35 | 线上 35 张卡片、`35 个开源项目` × 3、零死链 |
+| 2026-10-13 | 署名加英文名 Jarvis（9 处 + og:image 重绘） | 桌面/移动两套断点实测 |
+| 2026-10-13 | **主域名迁到 GitHub Pages**：`awuawuheiyohei.github.io/career-coach`；旧 mcode 地址保留并同步 | 新址 200 / HTTPS+HSTS / 资源全通；canonical 等 4 处已指向新址 |
 
 ## 线上地址
 
-| 项 | 值 |
-|---|---|
-| URL | https://06a9sk88n7fwg.space.mcode.cn |
-| Drive node ID | `450481916682970` |
-| 源码目录 | `mass/30-career-coach/portfolio-site/` |
+| 项 | 值 | 状态 |
+|---|---|---|
+| **主 URL** | https://awuawuheiyohei.github.io/career-coach/ | **主**，canonical 指向这里 |
+| 备用 URL | https://06a9sk88n7fwg.space.mcode.cn | 保留，内容与主站同步（旧链接不失效） |
+| Drive node ID | `450481916682970` | mcode 侧部署用 |
+| GitHub 仓库 | `awuawuheiyohei/career-coach`（public） | Pages 源码 |
+| 源码目录 | `mass/30-career-coach/portfolio-site/` | **唯一源**，两个托管都从这里出 |
 
-**托管**：MiniMax Code 的静态发布服务，底层阿里云 OSS + 阿里云 CDN（境内节点）。
-`space.mcode.cn` 是**共用域名**，你的子域唯一但**无鉴权**，拿到链接即可访问。
+**两处托管并存的原因**：`space.mcode.cn` 的子域是平台分配的随机哈希（`06a9sk88n7fwg`），
+`website_deploy` 只有 `path`/`project_name`/`source_path`/`node_id` 四个参数，**改不了域名**。
+GitHub Pages 免费、域名固定可控（`awuawuheiyohei` 就是本人 handle）、自动 HTTPS + HSTS。
+
+**Pages 走 Actions 而非 "Deploy from branch"**：Pages 的 source path 只接受 `/` 或 `/docs`，
+指不到 `portfolio-site/`，所以 `.github/workflows/deploy-pages.yml` 在 checkout 后
+把 `portfolio-site/` 整份复制到 `_site/` 再 `upload-pages-artifact`。
+**好处是 `portfolio-site/` 保持唯一源**——改了它，push 即两边同时更新，不用维护两份。
+
 `robots.txt` 已于 2026-10-13 补上并全站禁止索引（用户决定：只通过主动分享的链接访问）。
 
 ## 怎么改（重要）
