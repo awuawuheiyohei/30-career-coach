@@ -35,7 +35,7 @@ URL 不变，线上已验证：grep -c '在读' / '攻读' / '就读' 均为 0�
 | **主 URL** | https://awuawuheiyohei.github.io/career-coach/ | **主**，canonical 指向这里 |
 | 备用 URL | https://06a9sk88n7fwg.space.mcode.cn | 保留，内容与主站同步（旧链接不失效） |
 | Drive node ID | `450481916682970` | mcode 侧部署用 |
-| GitHub 仓库 | `awuawuheiyohei/career-coach`（public） | Pages 源码 |
+| GitHub 仓库 | `awuawuheiyohei/30-career-coach`（public） | Pages 源码 |
 | 源码目录 | `mass/30-career-coach/portfolio-site/` | **唯一源**，两个托管都从这里出 |
 
 **两处托管并存的原因**：`space.mcode.cn` 的子域是平台分配的随机哈希（`06a9sk88n7fwg`），
