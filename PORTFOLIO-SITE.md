@@ -27,12 +27,13 @@ URL 不变，线上已验证：grep -c '在读' / '攻读' / '就读' 均为 0�
 | 2026-10-13 | 6 个项目建 public 仓库并推送；卡片 29 → 35，文案 31 → 35 | 线上 35 张卡片、`35 个开源项目` × 3、零死链 |
 | 2026-10-13 | 署名加英文名 Jarvis（9 处 + og:image 重绘） | 桌面/移动两套断点实测 |
 | 2026-10-13 | **主域名迁到 GitHub Pages**：`awuawuheiyohei.github.io/career-coach`；旧 mcode 地址保留并同步 | 新址 200 / HTTPS+HSTS / 资源全通；canonical 等 4 处已指向新址 |
+| 2026-10-25 | **仓库改名后主 URL 同步**：`career-coach` → `30-career-coach`（仓库改名后 GitHub Pages 路径跟着变，旧路径已 404）；canonical / og:url / og:image / twitter:image 4 处同步 | 旧路径 404 + 新路径 200；og-image 新址 200 / 58,543B |
 
 ## 线上地址
 
 | 项 | 值 | 状态 |
 |---|---|---|
-| **主 URL** | https://awuawuheiyohei.github.io/career-coach/ | **主**，canonical 指向这里 |
+| **主 URL** | https://awuawuheiyohei.github.io/30-career-coach/ | **主**，canonical 指向这里 |
 | 备用 URL | https://06a9sk88n7fwg.space.mcode.cn | 保留，内容与主站同步（旧链接不失效） |
 | Drive node ID | `450481916682970` | mcode 侧部署用 |
 | GitHub 仓库 | `awuawuheiyohei/30-career-coach`（public） | Pages 源码 |
